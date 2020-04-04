@@ -19,6 +19,17 @@ document.getElementById("gamepad-btn").onclick = () => {
             document.getElementById("gamepad-btn").innerText = "Joy-Cons"
             gamepadConnected = true
             gamepadInputLoop()
+
+        case "Xbox 360 Controller":
+            mapper.addMappedBtn("B", 1)
+            mapper.addMappedBtn("A", 0)
+            mapper.addMappedBtn("Y", 3)
+            mapper.addMappedBtn("X", 2)
+            mapper.addMappedAxis("horz", 0)
+            mapper.addMappedAxis("vert", 1)
+            document.getElementById("gamepad-btn").innerText = "Xbox Contorller"
+            gamepadConnected = true
+            gamepadInputLoop()
         default:
             break;
     }
