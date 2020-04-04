@@ -8,6 +8,10 @@ switch (cstmHeroId) {
 	case "star_mage":
 		heroCard.getElementsByClassName("illustration")[0].src = "assets/art/cards/heros/cstm/star_mage.png"
 		break;
+	
+	case "pohates":
+		heroCard.getElementsByClassName("illustration")[0].src = "assets/art/cards/heros/cstm/pohates.png"
+		break;
 
 	default:
 		break;
