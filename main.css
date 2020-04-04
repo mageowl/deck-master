@@ -1,0 +1,388 @@
+@import "assets/font/stylesheet.css";
+@import "assets/font/icons/dm-icons/style.css";
+
+/* ROOT */
+:root {
+	--card-color-white: #f3efbc;
+	--card-color-black: #303030;
+	--card-color-red: #fd5c5c;
+	font-family: Zepto-Regular, sans-serif;
+	background-color: #3d3d3d;
+	color: rgb(20, 20, 20);
+	overflow: hidden;
+}
+
+:root.high-contrast {
+	color: rgb(207, 207, 207) !important;
+}
+
+
+img {
+	-webkit-user-drag: none;
+}
+
+span {
+	-webkit-user-select: none;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+}
+
+/* CARDS */
+.card {
+	border-radius: 5px;
+	width: 128px;
+	height: 192px;
+	user-select: none;
+	text-transform: uppercase;
+
+	transition: opacity 500ms,
+		left 500ms,
+		top 500ms,
+		transform 500ms;
+	position: absolute;
+	opacity: 0;
+}
+
+.card .illustration {
+	position: absolute;
+
+	border-radius: 5px;
+}
+
+.card .value {
+	font-family: PearSoda, Zepto-Regular,
+	sans-serif;
+	position: absolute;
+	top: 12px;
+	left: 10px;
+	width: 31px;
+	color: var(--card-color-black);
+	font-size: 2em;
+	text-shadow: -1px 0 var(--card-color-white),
+		1px 0 var(--card-color-white),
+		0 1px var(--card-color-white),
+		0 -1px var(--card-color-white);
+	text-align: center;
+}
+
+.card .name {
+	font-family: Zepto-Regular,
+		sans-serif;
+	line-height: 15px;
+	position: absolute;
+	top: 12px;
+	left: 45px;
+	width: 31px;
+	color: var(--card-color-black);
+	font-size: 1em;
+	text-align: left;
+}
+
+.card .value .current {
+	color: var(--card-color-red);
+	margin: 0;
+	padding: 0;
+	top: -7px;
+	position: relative;
+	font-size: 1.2em;
+}
+.card .value .total {
+	color: #b4b28c;
+	margin: 0;
+	padding: 0;
+	font-size: 0.5em;
+	bottom: 14px;
+	position: relative;
+	top: -19px;
+	left: 2px;
+}
+
+.hero-card {
+	background-color: var(--card-color-white);
+	position: absolute;
+	transition: transform 400ms, opacity 300ms;
+	cursor: grab;
+	opacity: 1;
+}
+
+.monster-card {
+	background-color: var(--card-color-white);
+	border-radius: 6px;
+}
+
+.monster-card .frame {
+	background-image: url("assets/art/cards/frame/green.png");
+	position: absolute;
+
+	width: 128px;
+	height: 192px;
+	border-radius: 5px;
+}
+
+.coin-card {
+	background-color: var(--card-color-white);
+	border-radius: 6px;
+}
+
+.coin-card .frame {
+	background-image: url("assets/art/cards/frame/yellow.png");
+	position: absolute;
+
+	width: 128px;
+	height: 192px;
+	border-radius: 5px;
+}
+
+
+.card-none {
+	background: var(--card-color-red);
+}
+
+.card-back {
+	background: var(--card-color-black);
+	color: rgb(87, 87, 87);
+	text-align: center;
+	right: 10px;
+	top: 5px;
+	opacity: 1;
+	z-index: 1000;
+}
+
+.card-back .illustration {
+	left: 0px
+}
+
+.effect-card {
+	background-color: var(--card-color-white);
+	border-radius: 6px;
+}
+
+.effect-card .frame {
+	background-image: url("assets/art/cards/frame/gray.png");
+	position: absolute;
+
+	width: 128px;
+	height: 192px;
+	border-radius: 5px;
+}
+
+.item-card {
+	background-color: var(--card-color-black);
+	border-radius: 6px;
+}
+
+.item-card .frame {
+	background-image: url("assets/art/cards/frame/item.png");
+	position: absolute;
+
+	width: 128px;
+	height: 192px;
+	border-radius: 5px;
+}
+
+.item-card .name {
+	color: rgb(207, 207, 207);
+	left: 0px;
+	top: 15px;
+	text-align: center;
+	width: 100%;
+}
+
+.item-card .cost {
+	color: rgb(231, 206, 95);
+	left: 0px;
+	top: 165px;
+	text-align: center;
+	width: 100%;
+	position: absolute;
+}
+
+/* OTHER */
+#score-count {
+	position: absolute;
+	left: 10px;
+	bottom: 30px;
+	font-size: 29px;
+	cursor: auto;
+	-webkit-user-select: none;
+	transition: color 300ms;
+}
+
+#score-count:hover {
+	color: rgb(97, 52, 97);
+}
+
+#death {
+	opacity: 0;
+	transition: opacity 500ms;
+
+	text-align: center;
+	margin-top: 50px;
+}
+
+#death h1 {
+	color: #fd5c5c;
+}
+
+#death #score {
+	text-align: left;
+	margin-left: 550px;
+}
+
+#store {
+	opacity: 0;
+	transition: opacity 300ms;
+}
+
+.back {
+	background-color: var(--card-color-black);
+	border: none;
+	outline: none;
+	color: inherit;
+	font-family: inherit;
+	font-size: 1em;
+}
+
+.monster-name {
+	text-transform: uppercase;
+}
+
+/* ICONS */
+
+#score-count span[class*="icon-"] {
+	font-size: 20px;
+}
+
+.item-card .cost span[class*="icon-"] {
+	font-size: 13px;
+}
+
+#death span[class*="icon-"] {
+	font-size: 13px;
+}
+
+/* INVENTORY */
+
+#inv {
+	background-color: var(--card-color-black);
+	right: 10px;
+	bottom: 10px;
+	position: absolute;
+	width: 380px;
+	transition: height 500ms;
+}
+
+#inv > span {
+	color: rgb(207, 207, 207);
+	margin-left: 10px;
+	margin-bottom: 10px;
+	-webkit-user-select: none;
+}
+
+.inv-item {
+	background-color: #3a3a3a;
+	margin: 5px;
+	position: relative;
+}
+
+.inv-item span.name {
+	position: absolute;
+	left: 60px;
+	top: 20px;
+	z-index: 1;
+	text-transform: uppercase;
+	font-size: 1.3em;
+}
+
+.inv-item span:not(.name) {
+	position: absolute;
+	left: 60px;
+	top: 45px;
+	z-index: 1;
+	line-height: 18px;
+}
+
+.inv-image {
+	width: 64px;
+	height: auto;
+}
+
+
+/* MAIN MENU */
+#game {
+	display: none;
+	transition: opacity 300ms;
+	opacity: 0;
+}
+
+#tutorial {
+	background-color: rgba(255,255,255,0.4);
+	transition: opacity 300ms;
+	opacity: 0;
+	max-width: 600px;
+	padding: 0 calc((100vw - 600px)/2);
+	margin: auto;
+	display: none;
+	overflow-y: scroll;
+	height: 100vh;
+}
+
+#tutorial p {
+	font-size: 1.5em;
+}
+
+#main-menu {
+	margin: auto;
+	width: 540px;
+	text-align: center;
+	transition: opacity 300ms;
+	opacity: 1;
+}
+
+#main-menu .menu-button {
+	display: block;
+	min-width: 200px;
+	max-width: 200px;
+	margin: auto;
+	padding: 5px 15px;
+	border-radius: 8px;
+}
+#main-menu .menu-button.selected {
+	background-color: #333;
+}
+
+#main-menu span {
+	font-size: 2em;
+	transition: color 500ms;
+	cursor: pointer;
+} 
+#main-menu span:hover {
+	color: rgb(207, 207, 207);
+}
+
+#tutorial * {
+	position: initial;
+}
+
+#main-menu button {
+	position: absolute;
+	top: 10px;
+	background-color: rgb(20, 20, 20);
+	color: #3d3d3d;
+	border: none;
+	font-family: inherit;
+	font-size: 0.8em;
+	outline: none;
+}
+
+#main-menu #high-contrast {
+	left: 10px;
+}
+
+#main-menu #gamepad-btn {
+	right: 10px;
+	top: 10px;
+}

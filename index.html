@@ -1,0 +1,120 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="main.css">
+		<title>Deck Master by OwL</title>
+	</head>
+	<body>
+		<div id="main-menu">
+			<img id="title-image" src="assets/art/menu.png">
+			<span id="play-button" class="menu-button">Play</span><br>
+			<span id="tutorial-button" class="menu-button">Tutorial</span>
+			<button id="high-contrast">High-Contrast</button>
+			<button id="gamepad-btn">Use Gamepad</button>
+		</div>
+
+		<div id="game">
+			<div id="death">
+				<h1>You died</h1>
+				<h4>By the power of <span id="monster-name"></span>.</h4>
+				<div id="score">
+					Coins collected: <span id="final-coins">0 <span class="icon-coin"></span></span> x10<br>
+					Monster points: <span id="final-monsters">0 <span class="icon-skull"></span></span> x2<br><br>
+					Total Score: <span id="final-score">0</span>
+				</div>
+				<button class="back">Back</button>
+			</div>
+			
+			<div id="store">
+			</div>
+			
+			<div id="inv">
+				<span>Inventory</span>
+			</div>
+			
+			<span id="score-count" title="Shop">0<span class="icon-coin"></span></span>
+			<div class="card hero-card">
+				<span class="value">
+					<span class="current">15</span><span class="total">/15</span>
+				</span>
+				<img src="assets/art/cards/heros/blue_knight.png" class="illustration">
+			</div>
+			<div class="card card-back">
+				Deck Master
+				<img src="assets/art/cards/back.png" class="illustration">
+			</div>
+	</div>
+	<div id="tutorial">
+		<button class="back">Back</button>
+		<h1>Tutorial</h1>
+		<p>
+			Hello Player.<br>
+			Soon you'll be battling monsters and striving against death, but I would suggest reading this first.
+		</p>
+
+		<p>This is your player:</p>
+		<img src="assets/art/tutorial/player.png"><br>
+		<p>
+			To move, you drag your player to a card that is 1 space away from you (Inculding diagonals.) You can also use the arrow keys or a controller (A list of supported controllers is at the bottom.)
+		</p>
+		<p>
+			If the first number in the top-left goes down to 0, you die. This is your health. It cannot go above the second number.
+		</p>
+		<p>
+			In the real game, there'll be a 3x3 grid of diffent cards to move to, containing cards of these types:
+		</p>
+		
+		<img src="assets/art/tutorial/coins.png"><br>
+		<p>
+			This is a coin card (yellow border). It gives you coins equal to the top-left number (value) that you can then spend on items or keep to raise your score.
+		</p>
+		<p>
+			To access the item store, click your coins in the bottom-left corner.
+		</p>
+
+		<img src="assets/art/tutorial/monster.png"><br>
+		<p>
+			This is a monster (green border). When you move to it, you lose health equal to its value.<br>
+		</p>
+		<p>
+			At the end of the game, your score is increased by the number and values of any monsters you killed.
+		</p>
+
+		<img src="assets/art/tutorial/effect.png"><br>
+		<p>
+			This is an effect (gray border). Diffrent effect cards do diffrent things, but this one heals you the number of points equal to its value.
+		</p>
+
+		<img src="assets/art/tutorial/item.png"><br>
+		<p>
+			This card is an item. They do diffrent things, but they can be bought from the store for coins by dragging your player to the card you want to buy (Cost is in the bottom.)
+		</p>
+		<p>
+			You finished this tutorial! Go play the game!
+		</p>
+		<button class="back">Back to Menu</button><br><br>
+
+		<h1>A Word on Controllers</h1>
+		<p>
+			To use a controller, connect your computer to the controller and press a button. 
+			Then in then main menu you can click "Use Controller."
+		</p>
+		<p>
+			The button text should then change to the name of your contoller. If it doesn't, please make sure you followed the directions and the controller is supported.
+		</p>
+		<h3>Supported Contollers</h3>
+		<ul>
+			<li>Nindendo Joy-Cons</li>
+		</ul>
+	</div>
+	<script src="assets/scripts/sound.js"></script>
+	<script src="assets/scripts/dragdrop.js"></script>
+	<script src="assets/scripts/mapper.js"></script>
+	<script src="assets/scripts/cards/create.js"></script>
+	<script src="assets/scripts/cards/generate.js"></script>
+	<script src="assets/scripts/animations.js"></script>
+	<script src="assets/scripts/engine.js"></script>
+	<script src="assets/scripts/keyboard.js"></script>
+	<script src="assets/scripts/gamepad.js"></script>
+	<script src="assets/scripts/store.js"></script>
+</body>
+</html>
