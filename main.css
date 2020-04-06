@@ -204,8 +204,8 @@ body {
 
 /* OTHER */
 #score-count {
-	position: absolute;
-	left: 10px;
+	position: relative;
+	right: 10px;
 	bottom: 30px;
 	font-size: 29px;
 	cursor: auto;
@@ -237,6 +237,12 @@ body {
 #store {
 	opacity: 0;
 	transition: opacity 300ms;
+	position: absolute;
+	left: 0;
+	width: 100vw;
+	height: 212px;
+	bottom: 0;
+	background-color: #505050;
 }
 
 .back {
@@ -274,7 +280,8 @@ body {
 	bottom: 10px;
 	position: absolute;
 	width: 380px;
-	transition: height 500ms;
+	transition: opacity 500ms;
+	opacity: 1;
 }
 
 #inv > span {
@@ -318,6 +325,8 @@ body {
 	display: none;
 	transition: opacity 300ms;
 	opacity: 0;
+	top: 0;
+	height: 100vh;
 }
 
 #tutorial {
@@ -395,4 +404,20 @@ body {
 	position: absolute;
 	left: calc(100vw / 2 - 402px / 2);
 	top: calc(100vh / 2 - 658px / 2);
+
+	transition: margin-top 500ms;
+	margin-top: 0;
+}
+
+/* STORE (by Micheal) */
+html.store #board div.card:not(.hero-card) {
+	opacity: .3 !important;
+}
+
+html.store #inv {
+	opacity: 0 !important;
+}
+
+html.store #board {
+	margin-top: -330px;
 }

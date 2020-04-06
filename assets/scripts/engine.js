@@ -110,10 +110,10 @@ const applyCard = (card, type, value, player, deathCard = null, sound = true) =>
 		case "item":
 			scoreElmt.click()
 
-			let x = card.getBoundingClientRect().left
-			let y = card.getBoundingClientRect().top
+			let x = parseInt(card.style.left)
+			let y = 10
 			let newCard = generateCards(storeTable, [x, y, 0, 0], 1)[0]
-			storeCards[card.data.pos[0]][card.data.pos[1]] = newCard
+			storeCards[card.data.pos] = newCard
 			addCardToStore(newCard, card.data.pos[1], card.data.pos[0])
 
 			score -= card.data.cost
@@ -160,11 +160,9 @@ const main = () => {
 	score = 0
 	playerPos = 1
 	scoreElmt.innerHTML = score + "<span class='icon-coin'>"
-	storeCards = [generateCards(storeTable, [10, 10, 140, 0], 3), generateCards(storeTable, [10, 210, 140, 0], 3)]
-	storeCards.forEach((row, y) => {
-		row.forEach((card, x) => {
-			addCardToStore(card, x, y)
-		})
+	storeCards = generateCards(storeTable, [30, 10, 140, 0], 6)
+	storeCards.forEach((card, i) => {
+		addCardToStore(card, i)
 	})
 
 	health = parseInt(heroCard.getElementsByClassName("current")[0].innerText)

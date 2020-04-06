@@ -1,7 +1,7 @@
 const storeElmt = document.getElementById("store")
 let gameBackButton = document.querySelector("#game .back")
 
-const addCardToStore = (card, x, y) => {
+const addCardToStore = (card, i) => {
 	storeElmt.appendChild(card)
 	card.style.opacity = 1
 	card.classList.add("drop")
@@ -13,7 +13,16 @@ const addCardToStore = (card, x, y) => {
 	card.appendChild(cost)
 
 	// Posision
-	card.data.pos = [y, x]
+	card.data.pos = i
+
+	// OnClick
+	setTimeout(() => {
+		card.onclick = () => {
+			if (card.data.cost > score) return
+			card.remove()
+			heroCard.dropHandler(heroCard, card)
+		}
+	}, 10);
 }
 
 let storeTable = [
@@ -47,14 +56,14 @@ let storeTable = [
 ]
 
 scoreElmt.onclick = () => {
+	if (!parseInt(storeElmt.style.opacity)) document.documentElement.classList.add("store")
+	else document.documentElement.classList.remove("store")
 	storeElmt.style.opacity = parseInt(storeElmt.style.opacity) ? 0 : 1
-	storeCards.forEach(row => {
-		row.forEach(card => {
-			if (card.data.cost > score) {
-				card.style.opacity = 0.5
-			} else {
-				card.style.opacity = 1
-			}
-		})
+	storeCards.forEach(card => {
+		if (card.data.cost > score) {
+			card.style.opacity = 0.5
+		} else {
+			card.style.opacity = 1
+		}
 	})
 }

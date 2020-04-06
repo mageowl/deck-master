@@ -58,15 +58,7 @@ const draggable = (card, handler) => {
 				targetType = Array.from(dropBelow.classList).filter((value) => { return value != "card" })[0]
 				targetType = targetType.substr(0, targetType.length - 5)
 				if (targetType == "item") {
-					if (dropBelow.parentNode.style.opacity != 1 || dropBelow.style.opacity != 1) {
-						dropBelow = null
-					} else {
-						setTimeout(() => {
-							dropBelow.remove()
-							card.style.left = left
-							card.style.top = top
-						}, 500);
-					}
+					dropBelow = null
 				}
 			}
 
@@ -83,7 +75,7 @@ const draggable = (card, handler) => {
 						card.style.transition = "transform 400ms"
 						setTimeout(() => {
 							card.droppable = true
-						}, 350)
+						}, 300)
 					}, 1001)
 				}
 			} else {
