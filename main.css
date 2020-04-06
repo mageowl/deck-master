@@ -44,6 +44,8 @@ body {
 		transform 500ms;
 	position: absolute;
 	opacity: 0;
+
+	box-shadow: #3d3d3d 0px -5px 5px;
 }
 
 .card .illustration {
@@ -311,7 +313,7 @@ body {
 }
 
 
-/* MAIN MENU */
+/* SCREENS */
 #game {
 	display: none;
 	transition: opacity 300ms;
@@ -385,4 +387,12 @@ body {
 #main-menu #gamepad-btn {
 	right: 10px;
 	top: 10px;
+}
+
+#board {
+	height: 658px;
+	width: 402px;
+	position: absolute;
+	left: calc(100vw / 2 - 402px / 2);
+	top: calc(100vh / 2 - 658px / 2);
 }

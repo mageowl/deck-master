@@ -8,10 +8,6 @@ switch (cstmHeroId) {
 	case "star_mage":
 		heroCard.getElementsByClassName("illustration")[0].src = "assets/art/cards/heros/cstm/star_mage.png"
 		break;
-	
-	case "pohates":
-		heroCard.getElementsByClassName("illustration")[0].src = "assets/art/cards/heros/cstm/pohates.png"
-		break;
 
 	default:
 		break;
@@ -23,6 +19,7 @@ let score = 0
 let scoreElmt = document.getElementById("score-count")
 let monsterPoints = 0
 let gameElmt = document.getElementById("game")
+let boardElmt = document.getElementById("board")
 let menuElmt = document.getElementById("main-menu")
 let playButton = document.getElementById("play-button")
 let tutorialButton = document.getElementById("tutorial-button")
@@ -172,16 +169,16 @@ const main = () => {
 	heroCard.querySelector(".total").innerText = "/15"
 	addHealth(parseInt(heroCard.getElementsByClassName("total")[0].innerText.substr(1)))
 	heroCard.style.opacity = 1
-	heroCard.style.top = "calc(100vh - 202px)"
+	heroCard.style.top = "calc(100% - 186px)"
 	heroCard.style.left = "calc(50% - 64px)"
 
 	grid = [generateCards(level, [0, 0, 0, 0], 3), generateCards(level, [0, 0, 0, 0], 3), generateCards(level, [0, 0, 0, 0], 3)]
 	grid.forEach((row, y) => {
 		row.forEach((card, x) => {
 			card.style.left = "calc(50% + " + (((x-1) * 137) - 64) + "px)"
-			card.style.top = 5 + (y * 198)
+			card.style.top = 5 + [0, 60, 268][y]
 			card.style.opacity = 1
-			gameElmt.appendChild(card)
+			boardElmt.appendChild(card)
 		})
 	})
 	cards = Array.from(document.querySelectorAll(".card:not(.item-card)"))
@@ -223,26 +220,31 @@ const main = () => {
 			})
 			delete grid[2][grid[2].indexOf(target)]
 			setTimeout(() => {
+				target.remove()
 				grid[2].forEach(card => {
 					card.remove()
 				})
 				grid.pop()
 				cards = Array.from(document.querySelectorAll(".card:not(.item-card)"))
-				cards.forEach((card) => {
-					card.style.top = parseInt(card.style.top) + 198
+				grid.forEach((row, y) => {
+					row.forEach((card) => {
+						card.style.top = 5 + [0, 60, 268][y + 1]
+						card.style.zIndex = (parseInt(card.style.zIndex) || 0) + 1
+					})
 				})
+				heroCard.style.top = parseInt(heroCard.style.top) + 198
 				setTimeout(() => {
 					target.remove()
 					let newCards = generateCards(level, [0, 10, 0, 0], 3)
 					newCards.forEach((card) => {
 						card.style = "top: 10px; left: calc(100% - 138px);"
-						gameElmt.appendChild(card)
 					})
 					grid.unshift(newCards)
 					cards.push(...newCards)
 					grid[2].forEach((card, i) => {
 						if (Math.abs(playerPos - i) == 2) return
 						card.classList.add("drop")
+						card.style.zIndex = 0
 					})
 					inventory.forEach((item, i) => {
 						if (item.onNewCards) {
@@ -257,9 +259,15 @@ const main = () => {
 					})
 					setTimeout(() => {
 						newCards.forEach((card, i) => {
-							card.style = "top: 5px; left: calc(50% + " + (((i - 1) * 137) - 64) + "px)"
+							card.style = "top: calc((100vh / 2 - 658px / 2) + 5px); left: calc(50% + " + (((i - 1) * 137) - 64) + "px)"
 							card.style.opacity = 1
 						})
+						setTimeout(() => {
+							newCards.forEach((card, i) => {
+								boardElmt.appendChild(card)
+								card.style.top = 5
+							})
+						}, 500)
 					}, 10)
 				}, 250)
 			}, 501)
