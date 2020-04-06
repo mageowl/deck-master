@@ -1,16 +1,19 @@
 const anims = {
 	death(monster, player, secondMonster = monster) {
-		secondMonster.style.left = "140px"
+
+		boardElmt.style.pointerEvents = "none"
+
+		secondMonster.style.left = "-140px"
 		secondMonster.style.top = "400px"
 		secondMonster.style.transform = "rotate(-5deg)"
 
-		monster.style.left = "120px"
+		monster.style.left = "-120px"
 		monster.style.top = "400px"
 		monster.style.transform = "rotate(-15deg)"
 
 		undraggable(player)
 		player.style.left = "calc(50% - 64px)"
-		player.style.top = "70%"
+		player.style.top = "78%"
 		player.style.transition = "top 500ms, left 500ms, transform 400ms"
 		player.querySelector(".current").innerText = 0
 

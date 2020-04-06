@@ -6,17 +6,14 @@ heroCard.goto = (targetCard) => {
 	heroCard.droppable = false
 	heroCard.style.zIndex = 1
 
-	// Set the left and top properties
-	setTimeout(() => { 
-		heroCard.style.left = targetCard.style.left
-		heroCard.style.top = targetCard.style.top
-	}, 10)
-
-	// Wait for transition to end
+	// Wait for transition to regester
 	setTimeout(() => { 
 		// Go back and do all the turn stuff
 		heroCard.dropHandler(heroCard, targetCard)
-	}, 510)
+		// Set the left and top properties
+		heroCard.style.left = targetCard.getBoundingClientRect().left - heroCard.parentNode.getBoundingClientRect().left
+		heroCard.style.top = targetCard.getBoundingClientRect().top - heroCard.parentNode.getBoundingClientRect().top + (heroCard.dropped ? 60 : 0)
+	}, 10)
 
 	setTimeout(() => { 
 		heroCard.style.transition = "transform 400ms"
@@ -54,7 +51,7 @@ window.onkeydown = (e) => {
 	}
 	
 	else if (currentScreen == gameElmt) {
-		if (grid[2] === undefined) return
+		if (heroCard.droppable == false) return
 		if (e.key == "ArrowRight" && currentScreen == gameElmt) {
 			heroCard.goto(grid[2][playerPos + 1])
 		} else if (e.key == "ArrowLeft" && currentScreen == gameElmt) {

@@ -78,11 +78,12 @@ const draggable = (card, handler) => {
 					handler(card, currentDrop)
 					card.style.left = currentDrop.getBoundingClientRect().left
 					card.style.top = currentDrop.getBoundingClientRect().top
+					card.dropped = true
 					setTimeout(() => {
 						card.style.transition = "transform 400ms"
 						setTimeout(() => {
 							card.droppable = true
-						}, 510)
+						}, 350)
 					}, 1001)
 				}
 			} else {

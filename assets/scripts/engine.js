@@ -156,7 +156,9 @@ const applyCard = (card, type, value, player, deathCard = null, sound = true) =>
 
 let health
 const main = () => {
+	boardElmt.style.pointerEvents = "all"
 	score = 0
+	playerPos = 1
 	scoreElmt.innerHTML = score + "<span class='icon-coin'>"
 	storeCards = [generateCards(storeTable, [10, 10, 140, 0], 3), generateCards(storeTable, [10, 210, 140, 0], 3)]
 	storeCards.forEach((row, y) => {
