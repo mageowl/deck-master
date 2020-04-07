@@ -82,7 +82,6 @@ window.onkeydown = (e) => {
 						return true
 					}
 					else if (storeSIndex < 6) return change()
-					//document.querySelectorAll('#store .card.selected ~ .card')[0]
 				}
 				if (!change()) {
 					storeCards[start].classList.add("selected")

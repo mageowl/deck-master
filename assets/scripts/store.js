@@ -26,20 +26,25 @@ const addCardToStore = (card, i) => {
 }
 
 let storeTable = [
-	{ card: { type: "item", ills: "items/hand_of_fire", name: "hand o` fire", data: { cost: 10, onNewCards: () => {
-		let isRowMonsters = true
-		grid[2].forEach(card => {
-			let cardType = Array.from(card.classList).filter((value) => { return value != "card" })[0]
-			cardType = cardType.substr(0, cardType.length - 5)
+	{ card: {
+		type: "item", ills: "items/hand_of_fire", name: "hand o` fire", data: {
+			cost: 10, onNewCards: () => {
+				let isRowMonsters = true
+				grid[2].forEach(card => {
+					let cardType = Array.from(card.classList).filter((value) => { return value != "card" })[0]
+					cardType = cardType.substr(0, cardType.length - 5)
 
-			if (cardType != "monster") isRowMonsters = false
-		})
-		if (isRowMonsters && grid[2][playerPos].querySelector(".value").innerText > 0) {
-			grid[2][playerPos].querySelector(".value").innerText = 0
-			return true
+					if (cardType != "monster") isRowMonsters = false
+				})
+				if (isRowMonsters && grid[2][playerPos].querySelector(".value").innerText > 0) {
+					grid[2][playerPos].querySelector(".value").innerText = 0
+					return true
+				}
+				return false
+			}, lore: "When facing a row of 3 monsters:<br>- Monster in front of you: value = 0<br>2 uses", uses: 2 
 		}
-		return false
-	}, lore: "A severed hand holding a ball of fire.<br>It can burn anything close enough.", uses: 2 }}, weight: 3},
+		}, weight: 3
+	},
 	{
 		card: {
 			type: "item", ills: "items/life_staff", name: "life staff", data: {
@@ -48,7 +53,7 @@ let storeTable = [
 						player.querySelector(".total").innerText = "/" + (parseInt(player.querySelector(".total").innerText.substr(1)) + 1)
 						addHealth(Math.floor(value / 2))
 					}
-				}, lore: "A long metal staff entangled with vines<br>It grants life from death."
+				}, lore: "When attacking monsters above 4:<br>- Damage halfed<br>- +1 Max health"
 			}
 		}, weight: 1
 	}
