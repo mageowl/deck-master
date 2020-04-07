@@ -110,15 +110,17 @@ const applyCard = (card, type, value, player, deathCard = null, sound = true) =>
 		case "item":
 			scoreElmt.click()
 
+			let pos = storeCards.indexOf(card)
 			let x = parseInt(card.style.left)
 			let y = 10
 			let newCard = generateCards(storeTable, [x, y, 0, 0], 1)[0]
-			storeCards[card.data.pos] = newCard
-			addCardToStore(newCard, card.data.pos[1], card.data.pos[0])
+			storeCards[pos] = newCard
+			addCardToStore(newCard, pos)
 
 			score -= card.data.cost
 			scoreElmt.innerHTML = score + "<span class='icon-coin'>"
 
+			// Add item you bought to inventory
 			let inventoryItem = document.createElement("div")
 			inventoryItem.classList.add("inv-item")
 
@@ -160,7 +162,7 @@ const main = () => {
 	score = 0
 	playerPos = 1
 	scoreElmt.innerHTML = score + "<span class='icon-coin'>"
-	storeCards = generateCards(storeTable, [30, 10, 140, 0], 6)
+	storeCards = generateCards(storeTable, [100, 10, 140, 0], 6)
 	storeCards.forEach((card, i) => {
 		addCardToStore(card, i)
 	})

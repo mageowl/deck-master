@@ -14,6 +14,8 @@ document.getElementById("gamepad-btn").onclick = () => {
             mapper.addMappedBtn("A", 1)
             mapper.addMappedBtn("Y", 2)
             mapper.addMappedBtn("X", 3)
+            mapper.addMappedBtn("leftTrig", 6)
+            mapper.addMappedBtn("rightTrig", 7)
             mapper.addMappedAxis("horz", 0)
             mapper.addMappedAxis("vert", 1)
             document.getElementById("gamepad-btn").innerText = "Joy-Cons"
@@ -59,9 +61,61 @@ const gamepadInputLoop = () => {
     else if (currentScreen == gameElmt) {
         if (grid === undefined || grid[2] === undefined) return
         if (mapper.getBtnPress("A") && health <= 0) gameElmt.querySelector(".back").click()
+
+        if (parseInt(storeElmt.style.opacity)) {
+            if (e.key == "ArrowRight" && currentScreen == gameElmt) {
+                storeCards[storeSIndex].classList.remove("selected")
+                let start = storeSIndex
+                const change = () => {
+                    storeSIndex++
+                    if (storeSIndex > 5) return false
+                    else if (storeCards[storeSIndex].style.opacity == 1) {
+                        storeCards[storeSIndex].classList.add("selected")
+                        return true
+                    }
+                    else if (storeSIndex < 6) return change()
+                    //document.querySelectorAll('#store .card.selected ~ .card')[0]
+                }
+                if (!change()) {
+                    storeCards[start].classList.add("selected")
+                    storeSIndex = start
+                }
+            } else if (e.key == "ArrowLeft" && currentScreen == gameElmt) {
+                storeCards[storeSIndex].classList.remove("selected")
+                let start = storeSIndex
+                const change = () => {
+                    storeSIndex--
+                    if (storeSIndex < 0) return false
+                    else if (storeCards[storeSIndex].style.opacity == 1) {
+                        storeCards[storeSIndex].classList.add("selected")
+                        return true
+                    }
+                    else if (storeSIndex < 6) return change()
+                    //document.querySelectorAll('#store .card.selected ~ .card')[0]
+                }
+                if (!change()) {
+                    storeCards[start].classList.add("selected")
+                    storeSIndex = start
+                }
+            } else if ((e.key == "ArrowUp" || e.key == "ArrowDown") && currentScreen == gameElmt) {
+                scoreElmt.click()
+                storeCards[storeSIndex ? storeSIndex : 0].classList.remove("selected")
+            }
+            return
+        }
+
         if (health <= 0) return
         if (mapper.getBtnPress("Y")) {
             scoreElmt.click()
+            let found = false
+            storeSIndex = -1
+            storeCards.forEach((card, i) => {
+                if (card.style.opacity == 1 && !found) {
+                    storeSIndex = i
+                    storeCards[i].classList.add("selected")
+                    found = true
+                }
+            })
         } else if (mapper.getAxis("vert") > 0.5) {
             return
         } else if (mapper.getAxis("horz") > 0.3) {

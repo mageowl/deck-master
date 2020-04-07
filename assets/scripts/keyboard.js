@@ -23,6 +23,7 @@ heroCard.goto = (targetCard) => {
 
 let selected = null
 let sIndex = -1
+let storeSIndex = -1
 let menuButtons = Array.from(document.querySelectorAll(".menu-button"))
 window.onkeydown = (e) => {
 	if (health <= 0) return
@@ -52,14 +53,67 @@ window.onkeydown = (e) => {
 	
 	else if (currentScreen == gameElmt) {
 		if (heroCard.droppable == false) return
+		if (parseInt(storeElmt.style.opacity)) {
+			if (e.key == "ArrowRight" && currentScreen == gameElmt) {
+				storeCards[storeSIndex].classList.remove("selected")
+				let start = storeSIndex
+				const change = () => {
+					storeSIndex++
+					if (storeSIndex > 5) return false
+					else if (storeCards[storeSIndex].style.opacity == 1) {
+						storeCards[storeSIndex].classList.add("selected")
+						return true
+					}
+					else if (storeSIndex < 6) return change()
+					//document.querySelectorAll('#store .card.selected ~ .card')[0]
+				}
+				if (!change()) {
+					storeCards[start].classList.add("selected")
+					storeSIndex = start
+				}
+			} else if (e.key == "ArrowLeft" && currentScreen == gameElmt) {
+				storeCards[storeSIndex].classList.remove("selected")
+				let start = storeSIndex
+				const change = () => {
+					storeSIndex--
+					if (storeSIndex < 0) return false
+					else if (storeCards[storeSIndex].style.opacity == 1) {
+						storeCards[storeSIndex].classList.add("selected")
+						return true
+					}
+					else if (storeSIndex < 6) return change()
+					//document.querySelectorAll('#store .card.selected ~ .card')[0]
+				}
+				if (!change()) {
+					storeCards[start].classList.add("selected")
+					storeSIndex = start
+				}
+			} else if ((e.key == "ArrowUp" || e.key == "ArrowDown")) {
+				scoreElmt.click()
+				if (storeSIndex >= 0) storeCards[storeSIndex].classList.remove("selected")
+			} else if (e.key == "Enter" && storeSIndex != -1) {
+				storeCards[storeSIndex].click()
+				storeSIndex = -1
+			}
+			return
+		}
 		if (e.key == "ArrowRight" && currentScreen == gameElmt) {
 			heroCard.goto(grid[2][playerPos + 1])
 		} else if (e.key == "ArrowLeft" && currentScreen == gameElmt) {
 			heroCard.goto(grid[2][playerPos - 1])
 		} else if (e.key == "ArrowUp" && currentScreen == gameElmt) {
 			heroCard.goto(grid[2][playerPos])
-		} else if (e.key == "Shift" && currentScreen == gameElmt) {
+		} else if (e.key == "ArrowDown" && currentScreen == gameElmt) {
 			scoreElmt.click()
+			let found = false
+			storeSIndex = -1
+			storeCards.forEach((card, i) => {
+				if (card.style.opacity == 1 && !found) {
+					storeSIndex = i
+					storeCards[i].classList.add("selected")
+					found = true
+				}
+			})
 		}
 	}
 }

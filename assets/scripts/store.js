@@ -56,14 +56,16 @@ let storeTable = [
 ]
 
 scoreElmt.onclick = () => {
-	if (!parseInt(storeElmt.style.opacity)) document.documentElement.classList.add("store")
-	else document.documentElement.classList.remove("store")
-	storeElmt.style.opacity = parseInt(storeElmt.style.opacity) ? 0 : 1
-	storeCards.forEach(card => {
-		if (card.data.cost > score) {
-			card.style.opacity = 0.5
-		} else {
-			card.style.opacity = 1
-		}
-	})
+	document.documentElement.classList.toggle("store")
+	if (document.documentElement.classList.contains("store")) {
+		storeElmt.style.opacity = 1
+		storeCards.forEach((card, i) => {
+			if (card.data.cost > score) {
+				card.style.opacity = 0.5
+			} else {
+				card.style.opacity = 1
+			}
+		})
+	}
+	else storeElmt.style.opacity = 0
 }

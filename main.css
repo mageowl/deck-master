@@ -174,6 +174,8 @@ body {
 .item-card {
 	background-color: var(--card-color-black);
 	border-radius: 6px;
+	margin: 3px;
+	cursor: pointer;
 }
 
 .item-card .frame {
@@ -204,17 +206,23 @@ body {
 
 /* OTHER */
 #score-count {
-	position: relative;
-	right: 10px;
-	bottom: 30px;
+	position: absolute;
+	left: 10px;
+	bottom: 10px;
 	font-size: 29px;
 	cursor: auto;
 	-webkit-user-select: none;
 	transition: color 300ms;
+	color: yellow;
+	cursor: pointer;
 }
 
 #score-count:hover {
-	color: rgb(97, 52, 97);
+	color: white;
+}
+
+.icon-coin {
+	opacity: 0.5;
 }
 
 #death {
@@ -419,5 +427,10 @@ html.store #inv {
 }
 
 html.store #board {
-	margin-top: -330px;
+	margin-top: -280px;
+}
+
+html.store #store .card.selected {
+	border: #3d89c7 solid 3px;
+	margin: 0;
 }
