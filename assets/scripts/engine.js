@@ -283,6 +283,10 @@ const clear = () => {
 		if (!card.classList.contains("hero-card") && !card.classList.contains("card-back")) card.remove()
 	})
 	cards = Array.from(document.querySelectorAll(".card:not(.item-card)"))
+	inventory.forEach(item => {
+		item.element.remove()
+	})
+	inventory = []
 	undraggable(heroCard)
 }
 
