@@ -21,6 +21,22 @@ document.getElementById("gamepad-btn").onclick = () => {
             document.getElementById("gamepad-btn").innerText = "Joy-Cons"
             gamepadConnected = true
             gamepadInputLoop()
+            break
+        
+        case "Xbox 360 Controller":
+            mapper.addMappedBtn("B", 1)
+            mapper.addMappedBtn("A", 0)
+            mapper.addMappedBtn("Y", 3)
+            mapper.addMappedBtn("X", 2)
+            mapper.addMappedBtn("leftTrig", 6)
+            mapper.addMappedBtn("rightTrig", 7)
+            mapper.addMappedAxis("horz", 0)
+            mapper.addMappedAxis("vert", 1)
+            document.getElementById("gamepad-btn").innerText = "Xbox Controller"
+            gamepadConnected = true
+            gamepadInputLoop()
+            break
+
         default:
             break;
     }
@@ -63,7 +79,7 @@ const gamepadInputLoop = () => {
         if (mapper.getBtnPress("A") && health <= 0) gameElmt.querySelector(".back").click()
 
         if (parseInt(storeElmt.style.opacity)) {
-            if (e.key == "ArrowRight" && currentScreen == gameElmt) {
+            if (mapper.getBtnPress("rightTrig") && currentScreen == gameElmt) {
                 storeCards[storeSIndex].classList.remove("selected")
                 let start = storeSIndex
                 const change = () => {
@@ -80,7 +96,7 @@ const gamepadInputLoop = () => {
                     storeCards[start].classList.add("selected")
                     storeSIndex = start
                 }
-            } else if (e.key == "ArrowLeft" && currentScreen == gameElmt) {
+            } else if (mapper.getBtnPress("leftTrig") && currentScreen == gameElmt) {
                 storeCards[storeSIndex].classList.remove("selected")
                 let start = storeSIndex
                 const change = () => {
@@ -97,9 +113,12 @@ const gamepadInputLoop = () => {
                     storeCards[start].classList.add("selected")
                     storeSIndex = start
                 }
-            } else if ((e.key == "ArrowUp" || e.key == "ArrowDown") && currentScreen == gameElmt) {
+            } else if (mapper.getBtnPress("Y")  && currentScreen == gameElmt) {
                 scoreElmt.click()
                 storeCards[storeSIndex ? storeSIndex : 0].classList.remove("selected")
+            } else if (mapper.getBtn("A") && storeSIndex != -1) {
+                storeCards[storeSIndex].click()
+                storeSIndex = -1
             }
             return
         }

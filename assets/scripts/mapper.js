@@ -11,7 +11,7 @@ class GamepadMap {
 
     getBtn(button) {
         this.reload()
-        return this.gamepad.buttons[this.map.btns[button]].pressed
+        return this.gamepad.buttons[this.map.btns[button][0]].pressed
     }
 
     getBtnPress(button) {
