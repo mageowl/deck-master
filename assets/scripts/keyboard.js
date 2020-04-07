@@ -12,7 +12,7 @@ heroCard.goto = (targetCard) => {
 		heroCard.dropHandler(heroCard, targetCard)
 		// Set the left and top properties
 		heroCard.style.left = targetCard.getBoundingClientRect().left - heroCard.parentNode.getBoundingClientRect().left
-		heroCard.style.top = targetCard.getBoundingClientRect().top - heroCard.parentNode.getBoundingClientRect().top + (heroCard.dropped ? 60 : 0)
+		heroCard.style.top = targetCard.getBoundingClientRect().top - heroCard.parentNode.getBoundingClientRect().top
 	}, 10)
 
 	setTimeout(() => { 

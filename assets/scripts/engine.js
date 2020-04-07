@@ -74,7 +74,7 @@ let level = [
 const addHealth = (x) => {
 	health += x
 	if (health <= 0) {
-		health = 0
+		if (anims.animActive) health = 0
 		return true
 	}
 	let total = parseInt(heroCard.getElementsByClassName("total")[0].innerText.substr(1))
@@ -213,6 +213,7 @@ const main = () => {
 		})
 		anims.animActive = true
 		if (end && health <= 0) {
+			health = 0
 			anims.death(target, player)
 			return
 		}

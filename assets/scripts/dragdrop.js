@@ -71,8 +71,13 @@ const draggable = (card, handler) => {
 					card.style.left = currentDrop.getBoundingClientRect().left
 					card.style.top = currentDrop.getBoundingClientRect().top
 					card.dropped = true
+					let left = currentDrop.style.left
+					let top = parseInt(currentDrop.style.top) + 198
 					setTimeout(() => {
 						card.style.transition = "transform 400ms"
+						boardElmt.appendChild(card)
+						card.style.left = left
+						card.style.top = top
 						setTimeout(() => {
 							card.droppable = true
 						}, 300)
