@@ -1,5 +1,8 @@
 const anims = {
+	animActive: true,
+
 	death(monster, player, secondMonster = monster) {
+		if (!this.animActive) return
 
 		boardElmt.style.pointerEvents = "none"
 

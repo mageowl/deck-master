@@ -198,6 +198,7 @@ const main = () => {
 		let targetValue = target.getElementsByClassName("value")[0] ? parseInt(target.getElementsByClassName("value")[0].innerText) : 0
 		
 		// Apply card
+		anims.animActive = false
 		let end = applyCard(target, targetType, targetValue, player)
 		inventory.forEach((item, i) => {
 			if (item.afterApply) {
@@ -210,7 +211,11 @@ const main = () => {
 				}
 			}
 		})
-		if (end) return
+		anims.animActive = true
+		if (end && health <= 0) {
+			anims.death(target, player)
+			return
+		}
 		
 
 		// Move cards
