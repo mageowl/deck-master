@@ -51,12 +51,14 @@ let level = [
 			{ card: { type: "coin", value: [4, 6], ills: "coins/two", name: "coins" }, weight: 3 },
 			{ card: { type: "coin", value: [7, 10], ills: "coins/many", name: "coins" }, weight: 2 },
 			{ card: { type: "effect", value: [2, 3], ills: "items/healing_flask", onDrop: (value) => { addHealth(value) }, name: "healing flask" }, weight: 3 }
-		], [10, 202, 140, 0], value)
+		], [-350, 202, 140, 0], value)
 		box_cards.forEach(card => {
+			if (health == 0) return	
 			let targetType = Array.from(card.classList).filter((value) => {return value != "card"})[0]
 			targetType = targetType.substr(0, targetType.length - 5)
 			let targetValue = parseInt(card.getElementsByClassName("value")[0].innerText)
 			applyCard(card, targetType, targetValue, player, self, false)
+			boardElmt.appendChild(card)
 			card.style.opacity = 1
 			setTimeout(() => {
 				if (health != 0) {
@@ -66,9 +68,9 @@ let level = [
 					}, 500)
 				}
 			}, 1000)
-			if (health == 0) return
 		})
-	}, name: "random effect" }, weight: 1 },
+		if (health == 0) return true
+	}, name: "random effect" }, weight: 110 },
 ]
 
 const addHealth = (x) => {
@@ -105,7 +107,9 @@ const applyCard = (card, type, value, player, deathCard = null, sound = true) =>
 			if (sound) playSound("ching")
 			break
 		case "effect":
-			card.drop(value, player, card)
+			if (card.drop(value, player, card)) {
+				return true
+			}
 			break
 		case "item":
 			scoreElmt.click()
@@ -199,7 +203,7 @@ const main = () => {
 		
 		// Apply card
 		anims.animActive = false
-		let end = applyCard(target, targetType, targetValue, player)
+		applyCard(target, targetType, targetValue, player)
 		inventory.forEach((item, i) => {
 			if (item.afterApply) {
 				if (item.afterApply(targetType, targetValue, player, target) && item.uses != undefined) {
@@ -212,7 +216,7 @@ const main = () => {
 			}
 		})
 		anims.animActive = true
-		if (end && health <= 0) {
+		if (health <= 0) {
 			health = 0
 			anims.death(target, player)
 			return

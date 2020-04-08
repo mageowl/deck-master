@@ -96,13 +96,13 @@ window.onkeydown = (e) => {
 			}
 			return
 		}
-		if (e.key == "ArrowRight" && currentScreen == gameElmt) {
+		if (e.key == "ArrowRight") {
 			heroCard.goto(grid[2][playerPos + 1])
-		} else if (e.key == "ArrowLeft" && currentScreen == gameElmt) {
+		} else if (e.key == "ArrowLeft") {
 			heroCard.goto(grid[2][playerPos - 1])
-		} else if (e.key == "ArrowUp" && currentScreen == gameElmt) {
+		} else if (e.key == "ArrowUp") {
 			heroCard.goto(grid[2][playerPos])
-		} else if (e.key == "ArrowDown" && currentScreen == gameElmt) {
+		} else if (e.key == "ArrowDown") {
 			scoreElmt.click()
 			let found = false
 			storeSIndex = -1

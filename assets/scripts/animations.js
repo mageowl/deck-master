@@ -6,7 +6,7 @@ const anims = {
 
 		boardElmt.style.pointerEvents = "none"
 
-		secondMonster.style.left = "-140px"
+		secondMonster.style.left = "-100px"
 		secondMonster.style.top = "400px"
 		secondMonster.style.transform = "rotate(-5deg)"
 
