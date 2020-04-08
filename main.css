@@ -373,13 +373,20 @@ body {
 	background-color: #333;
 }
 
-#main-menu span {
+#main-menu span.menu-button {
 	font-size: 2em;
 	transition: color 500ms;
 	cursor: pointer;
 } 
-#main-menu span:hover {
+#main-menu span.menu-button:hover {
 	color: rgb(207, 207, 207);
+}
+
+.version {
+	position: fixed;
+	left: 10px;
+	bottom: 10px;
+	float: left;
 }
 
 #tutorial * {
