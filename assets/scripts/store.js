@@ -60,7 +60,7 @@ let storeTable = [
 	{
 		card: {
 			type: "item", ills: "items/heart_stone", name: "heart stone", data: {
-				cost: 25, afterApply: (type, value, player) => {
+				cost: 75, afterApply: (type, value, player) => {
 					if (health <= 0) {
 						health = 0
 						addHealth(Math.ceil(parseInt(player.querySelector(".total").innerText.substr(1)) / 2))
