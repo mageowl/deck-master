@@ -43,27 +43,28 @@ let storeTable = [
 				return false
 			}, lore: "When facing a row of 3 monsters:<br>- Monster in front of you: value = 0<br>2 uses", uses: 2 
 		}
-		}, weight: 3
+		}, weight: 4
 	},
 	{
 		card: {
 			type: "item", ills: "items/life_staff", name: "life staff", data: {
-				cost: 25, afterApply: (type, value, player) => {
+				cost: 25, apply: (type, value, player) => {
 					if (type == "monster" && value > 3) {
 						player.querySelector(".total").innerText = "/" + (parseInt(player.querySelector(".total").innerText.substr(1)) + 1)
 						addHealth(Math.floor(value / 2))
 					}
 				}, lore: "When attacking monsters above 4:<br>- Damage halfed<br>- +1 Max health"
 			}
-		}, weight: 1
+		}, weight: 3
 	},
 	{
 		card: {
 			type: "item", ills: "items/heart_stone", name: "heart stone", data: {
-				cost: 75, afterApply: (type, value, player) => {
+				cost: 75, lateApply: (type, value, player) => {
 					if (health <= 0) {
 						health = 0
 						addHealth(Math.ceil(parseInt(player.querySelector(".total").innerText.substr(1)) / 2))
+						return true
 					}
 				}, lore: "When you die:<br>- You don't die (Half of your health is back)<br>1 use only", uses: 1
 			}

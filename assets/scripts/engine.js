@@ -205,8 +205,19 @@ const main = () => {
 		anims.animActive = false
 		applyCard(target, targetType, targetValue, player)
 		inventory.forEach((item, i) => {
-			if (item.afterApply) {
-				if (item.afterApply(targetType, targetValue, player, target) && item.uses != undefined) {
+			if (item.apply) {
+				if (item.apply(targetType, targetValue, player, target) && item.uses != undefined) {
+					item.uses--
+					if (item.uses <= 0) {
+						item.element.remove()
+						delete inventory[i]
+					}
+				}
+			}
+		})
+		inventory.forEach((item, i) => {
+			if (item.lateApply) {
+				if (item.lateApply(targetType, targetValue, player, target) && item.uses != undefined) {
 					item.uses--
 					if (item.uses <= 0) {
 						item.element.remove()
