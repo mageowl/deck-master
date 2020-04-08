@@ -70,7 +70,7 @@ let level = [
 			}, 1000)
 		})
 		if (health == 0) return true
-	}, name: "random effect" }, weight: 110 },
+	}, name: "random effect" }, weight: 1 },
 ]
 
 const addHealth = (x) => {
