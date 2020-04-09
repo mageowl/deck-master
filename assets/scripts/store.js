@@ -19,7 +19,6 @@ const addCardToStore = (card, i) => {
 	setTimeout(() => {
 		card.onclick = () => {
 			if (card.data.cost > score) return
-			card.remove()
 			heroCard.dropHandler(heroCard, card)
 		}
 	}, 10);
@@ -41,7 +40,7 @@ let storeTable = [
 					return true
 				}
 				return false
-			}, lore: "When facing a row of 3 monsters:<br>- Monster in front of you: value = 0<br>2 uses", uses: 2 
+			}, lore: "When facing a row of 3 monsters:<br>- Monster in front of you: value = 0<br>2 uses, stackable", uses: 2, stack: true
 		}
 		}, weight: 4
 	},
@@ -53,7 +52,7 @@ let storeTable = [
 						player.querySelector(".total").innerText = "/" + (parseInt(player.querySelector(".total").innerText.substr(1)) + 1)
 						addHealth(Math.floor(value / 2))
 					}
-				}, lore: "When attacking monsters above 4:<br>- Damage halfed<br>- +1 Max health"
+				}, lore: "When attacking monsters above 4:<br>- Damage halfed<br>- +1 Max health", stack: false
 			}
 		}, weight: 3
 	},
@@ -66,7 +65,7 @@ let storeTable = [
 						addHealth(Math.ceil(parseInt(player.querySelector(".total").innerText.substr(1)) / 2))
 						return true
 					}
-				}, lore: "When you die:<br>- You don't die (Half of your health is back)<br>1 use only", uses: 1
+				}, lore: "When you die:<br>- You don't die (Half of your health is back)<br>1 use only, no stack.", uses: 1, stack: false
 			}
 		}, weight: 1
 	}

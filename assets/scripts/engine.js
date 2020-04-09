@@ -112,7 +112,14 @@ const applyCard = (card, type, value, player, deathCard = null, sound = true) =>
 			}
 			break
 		case "item":
+			let duplicate = false
+			inventory.forEach((iCard) => {
+				if (!iCard.stack && iCard.element.querySelector(".name").innerText == card.querySelector(".name").innerText) duplicate = true
+			})
 			scoreElmt.click()
+			if (duplicate) return
+		
+			card.remove()
 
 			let pos = storeCards.indexOf(card)
 			let x = parseInt(card.style.left)
@@ -149,7 +156,7 @@ const applyCard = (card, type, value, player, deathCard = null, sound = true) =>
 					item.uses--
 					if (item.uses <= 0) {
 						inventoryItem.remove()
-						delete inventory[i]
+						inventory.splice(i, 1)
 					}
 				}
 			}
@@ -210,7 +217,7 @@ const main = () => {
 					item.uses--
 					if (item.uses <= 0) {
 						item.element.remove()
-						delete inventory[i]
+						inventory.splice(i, 1)
 					}
 				}
 			}
@@ -221,7 +228,7 @@ const main = () => {
 					item.uses--
 					if (item.uses <= 0) {
 						item.element.remove()
-						delete inventory[i]
+						inventory.splice(i, 1)
 					}
 				}
 			}
@@ -275,7 +282,7 @@ const main = () => {
 								item.uses--
 								if (item.uses <= 0) {
 									item.element.remove()
-									delete inventory[i]
+									inventory.splice(i, 1)
 								}
 							}
 						}
