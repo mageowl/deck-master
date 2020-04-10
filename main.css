@@ -10,6 +10,8 @@
 	background-color: #3d3d3d;
 	color: rgb(20, 20, 20);
 	overflow: hidden;
+	cursor: url(assets/art/cursor/point.png) 16 16,
+	pointer;
 }
 
 :root.high-contrast {
@@ -106,7 +108,8 @@ body {
 	background-color: var(--card-color-white);
 	position: absolute;
 	transition: transform 400ms, opacity 300ms;
-	cursor: grab;
+	cursor: url(assets/art/cursor/grab.png) 16 16,
+	pointer;
 	opacity: 1;
 }
 
@@ -175,7 +178,8 @@ body {
 	background-color: var(--card-color-black);
 	border-radius: 6px;
 	margin: 3px;
-	cursor: pointer;
+	cursor: url(assets/art/cursor/point.png) 16 16,
+	pointer;
 }
 
 .item-card .frame {
@@ -210,11 +214,11 @@ body {
 	left: 10px;
 	bottom: 10px;
 	font-size: 29px;
-	cursor: auto;
 	-webkit-user-select: none;
 	transition: color 300ms;
 	color: yellow;
-	cursor: pointer;
+	cursor: url(assets/art/cursor/point.png) 16 16,
+	pointer;
 }
 
 #score-count:hover {
@@ -365,7 +369,8 @@ body {
 
 #hero-select .hero-select {
 	margin: 3px;
-	cursor: pointer;
+	cursor: url(assets/art/cursor/point.png) 16 16,
+	pointer;
 	box-shadow: none;
 }
 
@@ -414,7 +419,8 @@ body {
 #main-menu span.menu-button {
 	font-size: 2em;
 	transition: color 500ms;
-	cursor: pointer;
+	cursor: url(assets/art/cursor/point.png) 16 16,
+	pointer;
 } 
 #main-menu span.menu-button:hover {
 	color: rgb(207, 207, 207);

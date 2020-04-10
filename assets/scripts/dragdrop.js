@@ -7,16 +7,18 @@ const draggable = (card, handler) => {
 
 		if (card.droppable == false) return
 
-		let left = card.getBoundingClientRect().left
-		let top = card.getBoundingClientRect().top
+		let left = card.style.left
+		let top = card.style.top
+		let noParentLeft = card.getBoundingClientRect().left
+		let noParentTop = card.getBoundingClientRect().top
 
-		let shiftX = event.clientX - card.getBoundingClientRect().left
-		let shiftY = event.clientY - card.getBoundingClientRect().top
+		let shiftX = event.clientX - noParentLeft
+		let shiftY = event.clientY - noParentTop
 
 		dragging = card
 
 		card.style.position = "absolute"
-		card.style.cursor = "grabbing"
+		card.style.cursor = "url(assets/art/cursor/grabbing.png) 16 16, pointer"
 		card.style.transform = "scale(1.2)"
 		card.style.zIndex = 1000
 		document.body.append(card)
@@ -43,7 +45,7 @@ const draggable = (card, handler) => {
 		function drop (event) {
 			card.style.transform = "none"
 			card.style.zIndex = -1
-			card.style.cursor = "grab"
+			card.style.cursor = "url(assets/art/cursor/grab.png) 16 16, pointer"
 
 			dragging = null
 
@@ -84,10 +86,13 @@ const draggable = (card, handler) => {
 					}, 1001)
 				}
 			} else {
-				card.style.left = left
-				card.style.top = top
+				card.style.left = noParentLeft
+				card.style.top = noParentTop
 				setTimeout(() => {
 					card.style.transition = "transform 400ms"
+					boardElmt.appendChild(card)
+					card.style.left = left
+					card.style.top = top
 				}, 501)
 			}
 
