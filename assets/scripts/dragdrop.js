@@ -7,8 +7,8 @@ const draggable = (card, handler) => {
 
 		if (card.droppable == false) return
 
-		let left = card.style.left
 		let top = card.style.top
+		let left = card.style.left
 		let noParentLeft = card.getBoundingClientRect().left
 		let noParentTop = card.getBoundingClientRect().top
 
@@ -86,7 +86,7 @@ const draggable = (card, handler) => {
 					}, 1001)
 				}
 			} else {
-				card.style.left = noParentLeft
+				card.style.left = parseInt(noParentLeft) + 10
 				card.style.top = noParentTop
 				setTimeout(() => {
 					card.style.transition = "transform 400ms"
