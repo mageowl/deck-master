@@ -5,6 +5,9 @@ const anims = {
 		if (!this.animActive) return
 
 		boardElmt.style.pointerEvents = "none"
+		
+		deathCount++
+		if (deathCount >= 10) unlockHero("reaper")
 
 		secondMonster.style.left = "-100px"
 		secondMonster.style.top = "400px"
@@ -19,6 +22,7 @@ const anims = {
 		player.style.top = "78%"
 		player.style.transition = "top 500ms, left 500ms, transform 400ms"
 		player.querySelector(".current").innerText = 0
+		health = 15
 
 		deathText.style.opacity = 1
 		deathText.querySelector("#monster-name").innerText = monster.querySelector(".name").innerText

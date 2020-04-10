@@ -1,17 +1,12 @@
 const isDebug = true
 
-let heroCard = document.querySelector(".hero-card:not(#tutorial-hero)")
+let heroCard = document.querySelector(".hero-card:not(.hero-select)")
 
-// CUSTOM HEROS
+// SET HERO
 let cstmHeroId = localStorage.dm_cstmHero
-switch (cstmHeroId) {
-	case "star_mage":
-		heroCard.getElementsByClassName("illustration")[0].src = "assets/art/cards/heros/cstm/star_mage.png"
-		break;
+heroCard.getElementsByClassName("illustration")[0].src = "assets/art/cards/heros/" + cstmHeroId + ".png"
 
-	default:
-		break;
-}
+let deathCount = 0
 
 let playerPos = 1
 let cards = Array.from(document.querySelectorAll(".card:not(.item-card)"))
@@ -19,10 +14,12 @@ let score = 0
 let scoreElmt = document.getElementById("score-count")
 let monsterPoints = 0
 let gameElmt = document.getElementById("game")
+let heroSelectElmt = document.getElementById("hero-select")
 let boardElmt = document.getElementById("board")
 let menuElmt = document.getElementById("main-menu")
 let playButton = document.getElementById("play-button")
 let tutorialButton = document.getElementById("tutorial-button")
+let heroButton = document.getElementById("hero-button")
 let tutorialElmt = document.getElementById("tutorial")
 
 let inventory = []
@@ -342,6 +339,20 @@ tutorialButton.onclick = () => {
 	}, 1000)
 }
 
+heroButton.onclick = () => {
+	menuElmt.style.marginTop = -300
+	menuElmt.style.opacity = 0.5
+	menuElmt.style.pointerEvents = "none"
+	heroSelectElmt.style.pointerEvents = "all"
+	currentScreen = heroSelectElmt
+	heroSelectElmt.style.opacity = 1
+	let unlockedHeroes = localStorage.heroesUnlocked.split(",")
+	heroSelectCards.forEach((card) => {
+		if (unlockedHeroes.indexOf(card.id) == -1) card.classList.add("locked")
+		else card.classList.remove("locked")
+	})
+}
+
 let backButtons = Array.from(document.querySelectorAll("button.back"))
 backButtons.forEach(b => {
 	b.onclick = () => {
@@ -351,6 +362,7 @@ backButtons.forEach(b => {
 		heroCard.style.opacity = 0
 		setTimeout(() => {
 			currentScreen.style.display = "none"
+			menuElmt.style.pointerEvents = "all"
 			menuElmt.style.opacity = 1
 			currentScreen = null
 			clear()

@@ -21,7 +21,7 @@ const addCardToStore = (card, i) => {
 			if (card.data.cost > score) return
 			heroCard.dropHandler(heroCard, card)
 		}
-	}, 10);
+	}, 10)
 }
 
 let storeTable = [
@@ -49,6 +49,7 @@ let storeTable = [
 			type: "item", ills: "items/life_staff", name: "life staff", data: {
 				cost: 25, apply: (type, value, player) => {
 					if (type == "monster" && value > 3) {
+						if (health == 0) unlockHero("life_mage")
 						player.querySelector(".total").innerText = "/" + (parseInt(player.querySelector(".total").innerText.substr(1)) + 1)
 						addHealth(Math.floor(value / 2))
 					}

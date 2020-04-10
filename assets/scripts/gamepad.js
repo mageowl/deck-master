@@ -7,7 +7,7 @@ document.getElementById("gamepad-btn").onclick = () => {
     switch (mapper.model.split(" (")[0]) {
         case "noPad":
             gamepadConnected = false
-            break;
+            break
 
         case "Joy-Con L+R":
             mapper.addMappedBtn("B", 0)
@@ -38,7 +38,7 @@ document.getElementById("gamepad-btn").onclick = () => {
             break
 
         default:
-            break;
+            break
     }
 }
 

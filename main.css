@@ -349,6 +349,41 @@ body {
 	height: 100vh;
 }
 
+#hero-select {
+	opacity: 0;
+	transition: opacity 300ms;
+	position: absolute;
+	left: 0;
+	width: 100vw;
+	height: 212px;
+	bottom: 0;
+	background-color: #505050;
+	padding: 30px;
+	pointer-events: none;
+}
+
+
+#hero-select .hero-select {
+	margin: 3px;
+	cursor: pointer;
+	box-shadow: none;
+}
+
+#hero-select .hero-select.locked {
+	background-color: var(--card-color-black);
+	background-image: url("/assets/art/cards/heros/lock.png");
+}
+
+#hero-select .hero-select.locked .illustration {
+	display: none;
+}
+
+
+#hero-select .card.selected {
+	border: #3d89c7 solid 3px;
+	margin: 0;
+}
+
 #tutorial p {
 	font-size: 1.5em;
 }
@@ -359,6 +394,8 @@ body {
 	text-align: center;
 	transition: opacity 300ms;
 	opacity: 1;
+	margin-top: 0;
+	transition: margin-top 500ms ease-in-out, opacity 500ms;
 }
 
 #main-menu .menu-button {
@@ -366,6 +403,7 @@ body {
 	min-width: 200px;
 	max-width: 200px;
 	margin: auto;
+	margin-bottom: 20px;
 	padding: 5px 15px;
 	border-radius: 8px;
 }

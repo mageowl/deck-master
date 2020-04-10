@@ -50,6 +50,50 @@ window.onkeydown = (e) => {
 			selected = menuButtons[sIndex]
 		}
 	}
+
+	else if (currentScreen == heroSelectElmt) {
+		if (storeSIndex == -1 && (e.key == "ArrowRight" || e.key == "ArrowLeft")) {
+			storeSIndex = 0
+			heroSelectCards[storeSIndex].classList.add("selected")
+			return
+		}
+		if (e.key == "ArrowRight") {
+			heroSelectCards[storeSIndex].classList.remove("selected")
+			let start = storeSIndex
+			const change = () => {
+				storeSIndex++
+				if (storeSIndex > heroSelectCards.length - 1) return false
+				else if (heroSelectCards[storeSIndex].classList.contains("locked")) change()
+				else {
+					heroSelectCards[storeSIndex].classList.add("selected")
+					return true
+				}
+			}
+			if (!change()) {
+				heroSelectCards[start].classList.add("selected")
+				storeSIndex = start
+			}
+		} else if (e.key == "ArrowLeft") {
+			heroSelectCards[storeSIndex].classList.remove("selected")
+			let start = storeSIndex
+			const change = () => {
+				storeSIndex--
+				if (storeSIndex < 0) return false
+				else if (heroSelectCards[storeSIndex].classList.contains("locked")) change()
+				else {
+					heroSelectCards[storeSIndex].classList.add("selected")
+					return true
+				}
+			}
+			if (!change()) {
+				heroSelectCards[start].classList.add("selected")
+				storeSIndex = start
+			}
+		} else if (e.key == "Enter" && storeSIndex != -1) {
+			heroSelectCards[storeSIndex].click()
+			storeSIndex = -1
+		}
+	}
 	
 	else if (currentScreen == gameElmt) {
 		if (heroCard.droppable == false) return
