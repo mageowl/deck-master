@@ -86,7 +86,7 @@ const draggable = (card, handler) => {
 					}, 1001)
 				}
 			} else {
-				card.style.left = parseInt(noParentLeft) + 10
+				card.style.left = parseInt(noParentLeft) + 0	
 				card.style.top = noParentTop
 				setTimeout(() => {
 					card.style.transition = "transform 400ms"
