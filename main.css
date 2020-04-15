@@ -10,7 +10,7 @@
 	background-color: #3d3d3d;
 	color: rgb(20, 20, 20);
 	overflow: hidden;
-	cursor: url(assets/art/cursor/point.png) 16 16,
+	cursor: url("assets/art/cursor/point.png") 16 16,
 	pointer;
 }
 
@@ -108,7 +108,7 @@ body {
 	background-color: var(--card-color-white);
 	position: absolute;
 	transition: transform 400ms, opacity 300ms;
-	cursor: url(assets/art/cursor/grab.png) 16 16,
+	cursor: url("assets/art/cursor/grab.png") 16 16,
 	pointer;
 	opacity: 1;
 }
@@ -178,7 +178,7 @@ body {
 	background-color: var(--card-color-black);
 	border-radius: 6px;
 	margin: 3px;
-	cursor: url(assets/art/cursor/point.png) 16 16,
+	cursor: url("assets/art/cursor/point.png") 16 16,
 	pointer;
 }
 
@@ -217,7 +217,7 @@ body {
 	-webkit-user-select: none;
 	transition: color 300ms;
 	color: yellow;
-	cursor: url(assets/art/cursor/point.png) 16 16,
+	cursor: url("assets/art/cursor/point.png") 16 16,
 	pointer;
 }
 
@@ -369,14 +369,14 @@ body {
 
 #hero-select .hero-select {
 	margin: 3px;
-	cursor: url(assets/art/cursor/point.png) 16 16,
+	cursor: url("assets/art/cursor/point.png") 16 16,
 	pointer;
 	box-shadow: none;
 }
 
 #hero-select .hero-select.locked {
 	background-color: var(--card-color-black);
-	background-image: url("/assets/art/cards/heros/lock.png");
+	background-image: url("assets/art/cards/heros/lock.png");
 }
 
 #hero-select .hero-select.locked .illustration {
@@ -419,7 +419,7 @@ body {
 #main-menu span.menu-button {
 	font-size: 2em;
 	transition: color 500ms;
-	cursor: url(assets/art/cursor/point.png) 16 16,
+	cursor: url("assets/art/cursor/point.png") 16 16,
 	pointer;
 } 
 #main-menu span.menu-button:hover {

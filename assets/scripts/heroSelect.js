@@ -13,7 +13,7 @@ heroes.forEach((hero, i) => {
 
     let img = document.createElement("img")
     img.classList.add("illustration")
-    img.src = "./assets/art/cards/heros/" + hero + ".png"
+    img.src = "assets/art/cards/heros/" + hero + ".png"
     card.id = hero
     card.appendChild(img)
 
