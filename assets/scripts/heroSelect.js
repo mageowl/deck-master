@@ -7,7 +7,7 @@ Object.keys(heroes).forEach((hero, i) => {
     card.style.left = 12 + i * 135
     card.onclick = () => {
         if (card.classList.contains("locked")) return
-        localStorage.dm_cstmHero = heroes[i]
+        localStorage.dm_cstmHero = hero
         location.reload()
     }
 
