@@ -21,7 +21,7 @@ const sortScores = () => {
             one from current row and one from the next: */
             x = rows[i].getElementsByTagName("TD")[1]
             y = rows[i + 1].getElementsByTagName("TD")[1]
-            console.log(x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase(), x, y)
+            
             // Check if the two rows should switch place:
             if (parseInt(x.innerHTML.toLowerCase()) < parseInt(y.innerHTML.toLowerCase())) {
                 // If so, mark as a switch and break the loop:
