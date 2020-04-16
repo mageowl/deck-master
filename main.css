@@ -257,8 +257,10 @@ body {
 	background-color: #505050;
 }
 
-.back {
+button {
 	background-color: var(--card-color-black);
+	cursor: url("assets/art/cursor/point.png") 16 16,
+	pointer;
 	border: none;
 	outline: none;
 	color: inherit;
@@ -364,6 +366,17 @@ body {
 	background-color: #505050;
 	padding: 30px;
 	pointer-events: none;
+}
+
+#league {
+	transition: opacity 300ms;
+	opacity: 0;
+	max-width: 600px;
+	padding: 0 calc((100vw - 600px)/2);
+	margin: auto;
+	display: none;
+	overflow-y: auto;
+	height: 100vh;
 }
 
 
@@ -484,4 +497,39 @@ html.store #board {
 html.store #store .card.selected {
 	border: #3d89c7 solid 3px;
 	margin: 0;
+}
+
+/* HIGHSCORE TABLE */
+table {
+	margin: auto;
+	border-collapse: collapse;
+}
+
+table th {
+	color: white;
+	font-weight: normal;
+	border:	2px solid black;
+	padding-left: 80px;
+	padding-right: 80px;
+	font-size: 1.3em;
+}
+
+table td {
+	font-size: 1.1em;
+	text-align: center;
+}
+
+table tbody:nth-child(odd) {
+	background-color: var(--card-color-black);
+}
+
+table tbody:nth-child(2){
+	color: gold;
+	font-size: 1.2em;
+}
+
+table tbody:nth-child(2) td:first-child::before {
+	content: "\63  ";
+	position: relative;
+	font-family: "dm-icons";
 }

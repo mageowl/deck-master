@@ -13,14 +13,16 @@ let cards = Array.from(document.querySelectorAll(".card:not(.item-card)"))
 let score = 0
 let scoreElmt = document.getElementById("score-count")
 let monsterPoints = 0
-let gameElmt = document.getElementById("game")
-let heroSelectElmt = document.getElementById("hero-select")
-let boardElmt = document.getElementById("board")
 let menuElmt = document.getElementById("main-menu")
 let playButton = document.getElementById("play-button")
+let gameElmt = document.getElementById("game")
+let boardElmt = document.getElementById("board")
 let tutorialButton = document.getElementById("tutorial-button")
-let heroButton = document.getElementById("hero-button")
 let tutorialElmt = document.getElementById("tutorial")
+let heroSelectElmt = document.getElementById("hero-select")
+let heroButton = document.getElementById("hero-button")
+let leagueButton = document.getElementById("league-button")
+let leagueElmt = document.getElementById("league")
 
 let inventory = []
 let invElemt = document.getElementById("inv")
@@ -336,6 +338,16 @@ tutorialButton.onclick = () => {
 	setTimeout(() => {
 		menuElmt.style.display = "none"
 		tutorialElmt.style.opacity = 1
+	}, 1000)
+}
+
+leagueButton.onclick = () => {
+	menuElmt.style.opacity = 0
+	leagueElmt.style.display = "block"
+	currentScreen = leagueElmt
+	setTimeout(() => {
+		menuElmt.style.display = "none"
+		leagueElmt.style.opacity = 1
 	}, 1000)
 }
 

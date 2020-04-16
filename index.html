@@ -15,15 +15,26 @@
 	<body>
 		<div id="main-menu">
 			<img id="title-image" src="assets/art/menu.png">
-			<span class="version">v1.1.2-beta</span>
+			<span class="version">v1.2.0-beta</span>
 			<span id="play-button" class="menu-button">Play</span>
 			<span id="tutorial-button" class="menu-button">Tutorial</span>
 			<span id="hero-button" class="menu-button">Heroes</span>
+			<span id="league-button" class="menu-button">League</span>
 			<button id="high-contrast">High-Contrast</button>
 			<button id="gamepad-btn">Use Gamepad</button>
 		</div>
 
 		<div id="hero-select">
+		</div>
+
+		<div id="league">
+			<table>
+				<thead><tr>
+					<th>Name</th>
+					<th>Score</th>
+					<th>Date</th>
+				</tr></thead>
+			</table>
 		</div>
 
 		<div id="game">
@@ -55,6 +66,7 @@
 					Total Score: <span id="final-score">0</span>
 				</div>
 				<button class="back">Back</button>
+				<button id="upload-score">Upload score to the League</button>
 			</div>
 
 			<div class="card card-back">
@@ -126,6 +138,11 @@
 			<li>Nindendo Joy-Cons</li>
 		</ul>
 	</div>
+	<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-database.js"></script>
+	
+	<script>
+	</script>
 	<script src="assets/scripts/sound.js"></script>
 	<script src="assets/scripts/dragdrop.js"></script>
 	<script src="assets/scripts/mapper.js"></script>
@@ -133,6 +150,7 @@
 	<script src="assets/scripts/cards/generate.js"></script>
 	<script src="assets/scripts/animations.js"></script>
 	<script src="assets/scripts/engine.js"></script>
+	<script src="assets/scripts/firebaseStuff.js"></script>
 	<script src="assets/scripts/heroSelect.js"></script>
 	<script src="assets/scripts/keyboard.js"></script>
 	<script src="assets/scripts/gamepad.js"></script>
