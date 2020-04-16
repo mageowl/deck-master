@@ -7,7 +7,7 @@ const anims = {
 		boardElmt.style.pointerEvents = "none"
 		
 		deathCount++
-		if (deathCount >= 10) unlockHero("reaper")
+		if (deathCount >= 10 && !timerEnded) unlockHero("reaper")
 
 		secondMonster.style.left = "-100px"
 		secondMonster.style.top = "400px"

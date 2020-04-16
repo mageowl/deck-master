@@ -1,7 +1,7 @@
-if (localStorage.heroesUnlocked == undefined) localStorage.heroesUnlocked = "blue_knight"
+if (localStorage.dm_heroesUnlocked == undefined) localStorage.dm_heroesUnlocked = "blue_knight"
 let heroSelectCards = []
-let heroes = ["blue_knight", "life_mage", "reaper"]
-heroes.forEach((hero, i) => {
+let heroes = {"blue_knight": "Defalt", "life_mage": "Use a life staff to escape death", "reaper": "Die 10 times in 10 min."}
+Object.keys(heroes).forEach((hero, i) => {
     let card = document.createElement("div")
     card.classList.add("card", "hero-card", "hero-select")
     card.style.left = 12 + i * 135
@@ -17,12 +17,17 @@ heroes.forEach((hero, i) => {
     card.id = hero
     card.appendChild(img)
 
+    let requirment = document.createElement("span")
+    requirment.innerHTML = heroes[hero]
+    requirment.classList.add("requirment")
+    card.appendChild(requirment)
+
     heroSelectElmt.appendChild(card)
     heroSelectCards.push(card)
 })
 
 
 const unlockHero = (heroID) => {
-    let unlocked = localStorage.heroesUnlocked.split(",")
-    localStorage.heroesUnlocked = Array.from(new Set(unlocked.concat(heroID))).join()
+    let unlocked = localStorage.dm_heroesUnlocked.split(",")
+    localStorage.dm_heroesUnlocked = Array.from(new Set(unlocked.concat(heroID))).join()
 }

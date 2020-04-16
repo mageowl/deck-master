@@ -266,6 +266,7 @@ button {
 	color: inherit;
 	font-family: inherit;
 	font-size: 1em;
+	margin: 5px;
 }
 
 .monster-name {
@@ -386,6 +387,20 @@ button {
 	cursor: url("assets/art/cursor/point.png") 16 16,
 	pointer;
 	box-shadow: none;
+}
+
+#hero-select .hero-select:not(.locked) .requirment {
+	display: none;
+}
+
+#hero-select .hero-select.locked .requirment {
+	font-family: PearSoda;
+	bottom: 10px;
+	position: absolute;
+	width: 128;
+	text-align: center;
+	color: #546e7a;
+	font-size: 1.1em;
 }
 
 #hero-select .hero-select.locked {

@@ -7,6 +7,8 @@ let cstmHeroId = localStorage.dm_cstmHero
 heroCard.getElementsByClassName("illustration")[0].src = "assets/art/cards/heros/" + cstmHeroId + ".png"
 
 let deathCount = 0
+let timerStarted = false
+let timerEnded = false
 
 let playerPos = 1
 let cards = Array.from(document.querySelectorAll(".card:not(.item-card)"))
@@ -199,6 +201,11 @@ const main = () => {
 		card.classList.add("drop")
 	})
 
+	timerStarted = true
+	setTimeout(() => {
+		timerEnded = true
+	}, 600000);
+
 	draggable(heroCard, (player, target) => {
 		// Get target type
 		let targetType = Array.from(target.classList).filter((value) => {return value != "card"})[0]
@@ -358,7 +365,7 @@ heroButton.onclick = () => {
 	heroSelectElmt.style.pointerEvents = "all"
 	currentScreen = heroSelectElmt
 	heroSelectElmt.style.opacity = 1
-	let unlockedHeroes = localStorage.heroesUnlocked.split(",")
+	let unlockedHeroes = localStorage.dm_heroesUnlocked.split(",")
 	heroSelectCards.forEach((card) => {
 		if (unlockedHeroes.indexOf(card.id) == -1) card.classList.add("locked")
 		else card.classList.remove("locked")
