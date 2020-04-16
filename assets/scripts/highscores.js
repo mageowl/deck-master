@@ -75,6 +75,8 @@ const uploadScore = (score, name = localStorage.dm_name) => {
 highscores.on("value", (snapshot) => {
     let value = Object.values(snapshot.val())
     let table = leagueElmt.querySelector("table")
-    
+    value.forEach(val => {
+        table.innerHTML += `<tr><td>${val.name}</td><td>${val.score}</td><td>${val.date}</td></tr>`
+    })
     sortScores()
 })
