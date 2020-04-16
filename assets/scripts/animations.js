@@ -24,16 +24,6 @@ const anims = {
 		player.querySelector(".current").innerText = 0
 		health = 15
 
-		if (!localStorage.dm_name) {
-			let name = prompt("Enter your name to enter your score into the database")
-			if (name != null && name != "") {
-				localStorage.dm_name = name
-				uploadScore(score)
-			}
-		} else {
-			uploadScore(score)
-		}
-
 		deathText.style.opacity = 1
 		deathText.querySelector("#monster-name").innerText = monster.querySelector(".name").innerText
 		deathText.querySelector("#final-coins").innerHTML = score + " <span class='icon-coin'></span>"
