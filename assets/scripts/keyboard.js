@@ -19,6 +19,7 @@ heroCard.goto = (targetCard) => {
 		heroCard.style.transition = "transform 400ms"
 		heroCard.droppable = true
 	}, 1510)
+	return true
 }
 
 let selected = null
@@ -141,9 +142,15 @@ window.onkeydown = (e) => {
 			return
 		}
 		if (e.key == "ArrowRight") {
-			heroCard.goto(grid[2][playerPos + 1])
+			if (!e.shiftKey || !hasWings) heroCard.goto(grid[2][playerPos + 1])
+			else {
+				hasWings = heroCard.goto(grid[2][playerPos + 2])
+			}
 		} else if (e.key == "ArrowLeft") {
-			heroCard.goto(grid[2][playerPos - 1])
+			if (!e.shiftKey || !hasWings) heroCard.goto(grid[2][playerPos - 1])
+			else {
+				hasWings = heroCard.goto(grid[2][playerPos - 2])
+			}
 		} else if (e.key == "ArrowUp") {
 			heroCard.goto(grid[2][playerPos])
 		} else if (e.key == "ArrowDown") {

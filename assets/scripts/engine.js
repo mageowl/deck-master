@@ -10,6 +10,8 @@ let deathCount = 0
 let timerStarted = false
 let timerEnded = false
 
+let hasWings = false
+
 let playerPos = 1
 let cards = Array.from(document.querySelectorAll(".card:not(.item-card)"))
 let score = 0
@@ -207,6 +209,7 @@ const main = () => {
 	}, 600000)
 
 	draggable(heroCard, (player, target) => {
+
 		// Get target type
 		let targetType = Array.from(target.classList).filter((value) => {return value != "card"})[0]
 		targetType = targetType.substr(0, targetType.length - 5)
@@ -278,9 +281,9 @@ const main = () => {
 					grid.unshift(newCards)
 					cards.push(...newCards)
 					grid[2].forEach((card, i) => {
+						card.style.zIndex = 0
 						if (Math.abs(playerPos - i) == 2) return
 						card.classList.add("drop")
-						card.style.zIndex = 0
 					})
 					inventory.forEach((item, i) => {
 						if (item.onNewCards) {
@@ -292,6 +295,7 @@ const main = () => {
 								}
 							}
 						}
+						if (item.element.querySelector(".name").innerHTML == "wings") hasWings = true
 					})
 					setTimeout(() => {
 						newCards.forEach((card, i) => {

@@ -40,7 +40,7 @@ let storeTable = [
 					return true
 				}
 				return false
-			}, lore: "When facing a row of 3 monsters:<br>- Monster in front of you: value = 0<br>2 uses, stackable", uses: 2, stack: true
+			}, lore: "When facing a row of 3 monsters:<br>- Monster in front of you: value = 0<br>2 uses, stackable.", uses: 2, stack: true
 		}
 		}, weight: 4
 	},
@@ -53,7 +53,7 @@ let storeTable = [
 						player.querySelector(".total").innerText = "/" + (parseInt(player.querySelector(".total").innerText.substr(1)) + 1)
 						addHealth(Math.floor(value / 2))
 					}
-				}, lore: "When attacking monsters above 4:<br>- Damage halfed<br>- +1 Max health", stack: false
+				}, lore: "When attacking monsters above 4:<br>- Damage halfed.<br>- +1 Max health.", stack: false
 			}
 		}, weight: 3
 	},
@@ -66,9 +66,26 @@ let storeTable = [
 						addHealth(Math.ceil(parseInt(player.querySelector(".total").innerText.substr(1)) / 2))
 						return true
 					}
-				}, lore: "When you die:<br>- You don't die (Half of your health is back)<br>1 use only, no stack.", uses: 1, stack: false
+				}, lore: "When you die:<br>- You don't die (Half of your health is back.)<br>1 use only, no stack.", uses: 1, stack: false
 			}
 		}, weight: 1
+	},
+	{
+		card: {
+			type: "item", ills: "items/wings", name: "wings", data: {
+				cost: 15, onNewCards: () => {
+					let used = !hasWings
+					hasWings = true
+					grid[2].forEach(item => {
+						item.classList.add("drop")
+					})
+					if (used) return true
+				}, onBuy: () => {
+					hasWings = true
+				}
+				, lore: "When facing any row:<br>- Bottom row = valid moves.<br>4 uses, no stack. (Hold SHIFT/X btn to use)", uses: 4, stack: false
+			}
+		}, weight: 4
 	}
 
 ]
