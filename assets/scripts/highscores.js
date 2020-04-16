@@ -10,29 +10,29 @@ const sortScores = () => {
     no switching has been done: */
     while (switching) {
         // Start by saying: no switching is done:
-        switching = false;
-        rows = table.rows;
+        switching = false
+        rows = table.rows
         /* Loop through all table rows (except the
         first, which contains table headers): */
-        for (i = 1; i < (rows.length - 1); i++) {
+        for (i = 1 i < (rows.length - 1) i++) {
             // Start by saying there should be no switching:
-            shouldSwitch = false;
+            shouldSwitch = false
             /* Get the two elements you want to compare,
             one from current row and one from the next: */
-            x = rows[i].getElementsByTagName("TD")[1];
-            y = rows[i + 1].getElementsByTagName("TD")[1];
+            x = rows[i].getElementsByTagName("TD")[1]
+            y = rows[i + 1].getElementsByTagName("TD")[1]
             // Check if the two rows should switch place:
             if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
                 // If so, mark as a switch and break the loop:
-                shouldSwitch = true;
-                break;
+                shouldSwitch = true
+                break
             }
         }
         if (shouldSwitch) {
             /* If a switch has been marked, make the switch
             and mark that a switch has been done: */
-            rows[i].parentNode.parentNode.insertBefore(rows[i + 1].parentNode, rows[i].parentNode);
-            switching = true;
+            rows[i].parentNode.parentNode.insertBefore(rows[i + 1].parentNode, rows[i].parentNode)
+            switching = true
         }
     }
 }

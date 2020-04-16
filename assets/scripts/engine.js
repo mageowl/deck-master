@@ -204,7 +204,7 @@ const main = () => {
 	timerStarted = true
 	setTimeout(() => {
 		timerEnded = true
-	}, 600000);
+	}, 600000)
 
 	draggable(heroCard, (player, target) => {
 		// Get target type
