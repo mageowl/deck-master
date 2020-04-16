@@ -76,7 +76,7 @@ highscores.on("value", (snapshot) => {
     let value = Object.values(snapshot.val())
     value.forEach(val => {
         let table = leagueElmt.querySelector("table")
-        table.innerHTML += `<tr><td>${val.name}</td><td>${val.score}</td><td>${val.date}</td></tr>`
+        table.innerHTML = `<tr><td>${val.name}</td><td>${val.score}</td><td>${val.date}</td></tr>`
         sortScores()
     })
 })

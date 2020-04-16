@@ -44,15 +44,15 @@ const anims = {
 
 let scoreUploadBtn = document.getElementById("upload-score")
 scoreUploadBtn.onclick = () => {
-	if (!localStorage.dm_name || !confirm("Upload score to database using name " + localStorage.dm_name + "?")) {
+	if (!localStorage.dm_name || !confirm("Upload score to database using name " + localStorage.dm_name + " or change name?")) {
 		let name = prompt("Enter your name to enter your score into the database")
 		if (name != null && name != "") {
 			localStorage.dm_name = name
-			backButtons[0].click()
+			location.reload()
 			uploadScore(score * 10 + monsterPoints * 2)
 		}
 	} else {
-		backButtons[0].click()
+		location.reload()
 		uploadScore(score * 10 + monsterPoints * 2)
 	}
 }
