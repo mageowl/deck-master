@@ -377,6 +377,7 @@ button {
 	display: none;
 	overflow-y: auto;
 	height: 100vh;
+	margin-top: 20px;
 }
 
 
