@@ -144,12 +144,12 @@ window.onkeydown = (e) => {
 		if (e.key == "ArrowRight") {
 			if (!e.shiftKey || !hasWings) heroCard.goto(grid[2][playerPos + 1])
 			else {
-				hasWings = heroCard.goto(grid[2][playerPos + 2])
+				hasWings = !heroCard.goto(grid[2][playerPos + 2])
 			}
 		} else if (e.key == "ArrowLeft") {
 			if (!e.shiftKey || !hasWings) heroCard.goto(grid[2][playerPos - 1])
 			else {
-				hasWings = heroCard.goto(grid[2][playerPos - 2])
+				hasWings = !heroCard.goto(grid[2][playerPos - 2])
 			}
 		} else if (e.key == "ArrowUp") {
 			heroCard.goto(grid[2][playerPos])
