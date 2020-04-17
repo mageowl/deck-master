@@ -82,8 +82,8 @@ let storeTable = [
 					if (used) return true
 				}, onBreak: () => {
 					hasWings = false
-				}
-				, lore: "When facing any row:<br>- All of bottom row can be moved to.<br>4 uses, no stack. (Hold SHIFT to use)", uses: 4, stack: false
+				},
+				lore: "When facing any row:<br>- All of bottom row can be moved to.<br>4 uses, no stack. (Hold SHIFT to use)", uses: 4, stack: false
 			}
 		}, weight: 4
 	}

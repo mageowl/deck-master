@@ -247,6 +247,7 @@ const main = () => {
 			return
 		}
 		
+		if (grid[2].indexOf(target) == playerPos + 2 || grid[2].indexOf(target) == playerPos - 2) hasWings = false
 
 		// Move cards
 		if (targetType != "item") {
