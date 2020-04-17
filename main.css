@@ -540,6 +540,12 @@ table tbody:nth-child(2){
 	font-size: 1.2em;
 }
 
+table tbody:nth-child(3) {
+	color: rgb(230, 230, 230);
+	font-size: 1.1em;
+}
+
+
 table tbody:nth-child(2) td:first-child::before {
 	content: "\63  ";
 	position: relative;
