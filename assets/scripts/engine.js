@@ -156,17 +156,23 @@ const applyCard = (card, type, value, player, deathCard = null, sound = true) =>
 			let item = { ...card.data, element: inventoryItem }
 			if (item.onNewCards) {
 				if (item.onNewCards() && item.uses != undefined) {
-					item.uses--
-					if (item.uses <= 0) {
-						inventoryItem.remove()
-						inventory.splice(i, 1)
-					}
+					removeItemDurability(item, inventory.length)
 				}
 			}
 			inventory.push(item)
 			break
 		default:
 			break
+	}
+}
+
+const removeItemDurability = (item, i) => {
+	item.uses--
+	if (item.uses <= 0) {
+		console.log(item.onBreak, Boolean(item.onBreak))
+		if (item.onBreak) item.onBreak()
+		item.element.remove()
+		inventory.splice(i, 1)
 	}
 }
 
@@ -223,22 +229,14 @@ const main = () => {
 		inventory.forEach((item, i) => {
 			if (item.apply) {
 				if (item.apply(targetType, targetValue, player, target) && item.uses != undefined) {
-					item.uses--
-					if (item.uses <= 0) {
-						item.element.remove()
-						inventory.splice(i, 1)
-					}
+					removeItemDurability(item, i)
 				}
 			}
 		})
 		inventory.forEach((item, i) => {
 			if (item.lateApply) {
 				if (item.lateApply(targetType, targetValue, player, target) && item.uses != undefined) {
-					item.uses--
-					if (item.uses <= 0) {
-						item.element.remove()
-						inventory.splice(i, 1)
-					}
+					removeItemDurability(item, i)
 				}
 			}
 		})
@@ -288,11 +286,7 @@ const main = () => {
 					inventory.forEach((item, i) => {
 						if (item.onNewCards) {
 							if (item.onNewCards() && item.uses != undefined) {
-								item.uses--
-								if (item.uses <= 0) {
-									item.element.remove()
-									inventory.splice(i, 1)
-								}
+								removeItemDurability(item, i)
 							}
 						}
 						if (item.element.querySelector(".name").innerHTML == "wings") hasWings = true

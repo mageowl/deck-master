@@ -66,7 +66,7 @@ let storeTable = [
 						addHealth(Math.ceil(parseInt(player.querySelector(".total").innerText.substr(1)) / 2))
 						return true
 					}
-				}, lore: "When you die:<br>- You don't die (Half of your health is back.)<br>1 use only, no stack.", uses: 1, stack: false
+				}, lore: "When you die:<br>- +50% Health <br>1 use only, no stack.", uses: 1, stack: false
 			}
 		}, weight: 1
 	},
@@ -80,10 +80,10 @@ let storeTable = [
 						item.classList.add("drop")
 					})
 					if (used) return true
-				}, onBuy: () => {
-					hasWings = true
+				}, onBreak: () => {
+					hasWings = false
 				}
-				, lore: "When facing any row:<br>- Bottom row = valid moves.<br>4 uses, no stack. (Hold SHIFT/X btn to use)", uses: 4, stack: false
+				, lore: "When facing any row:<br>- All of bottom row can be moved to.<br>4 uses, no stack. (Hold SHIFT to use)", uses: 4, stack: false
 			}
 		}, weight: 4
 	}

@@ -72,10 +72,16 @@ const uploadScore = (score, name = localStorage.dm_name) => {
     return highscores.update(updates)
 }
 
+let displayedScores = []
+
 highscores.on("value", (snapshot) => {
-    let value = Object.values(snapshot.val())
+    let vRaw = snapshot.val()
+    let values = Object.values(vRaw)
     let table = leagueElmt.querySelector("table")
-    value.forEach(val => {
+    values.forEach((val, i) => {
+        let sid = Object.keys(vRaw)[i]
+        if (displayedScores.indexOf(sid) != -1) return
+        displayedScores.push(sid)
         table.innerHTML += `<tr><td>${val.name}</td><td>${val.score}</td><td>${val.date}</td></tr>`
     })
     sortScores()
