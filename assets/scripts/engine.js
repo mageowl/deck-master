@@ -386,8 +386,3 @@ backButtons.forEach(b => {
 		}, 1000)
 	}
 })
-
-let highContrastButton = document.getElementById("high-contrast")
-highContrastButton.onclick = () => {
-	document.getElementsByTagName("html")[0].classList.toggle("high-contrast")
-}

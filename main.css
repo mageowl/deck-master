@@ -8,14 +8,10 @@
 	--card-color-red: #fd5c5c;
 	font-family: Zepto-Regular, sans-serif;
 	background-color: #3d3d3d;
-	color: rgb(20, 20, 20);
+	color: rgb(172, 172, 172);
 	overflow: hidden;
 	cursor: url("assets/art/cursor/point.png") 16 16,
 	pointer;
-}
-
-:root.high-contrast {
-	color: rgb(207, 207, 207) !important;
 }
 
 
