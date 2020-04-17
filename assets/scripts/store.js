@@ -92,6 +92,10 @@ let storeTable = [
 
 scoreElmt.onclick = () => {
 	document.documentElement.classList.toggle("store")
+	if (storeSIndex + 1) {
+		storeCards[storeSIndex].classList.remove("selected")
+		storeSIndex = -1
+	}
 	if (document.documentElement.classList.contains("store")) {
 		storeElmt.style.opacity = 1
 		storeCards.forEach((card, i) => {
