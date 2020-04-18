@@ -181,7 +181,7 @@ const main = () => {
 	boardElmt.style.pointerEvents = "all"
 	score = 0
 	playerPos = 1
-	scoreElmt.innerHTML = score + "<span class='icon-coin'>"
+	scoreElmt.innerHTML = "0<span class='icon-coin'>"
 	storeCards = generateCards(storeTable, [100, 10, 140, 0], 6)
 	storeCards.forEach((card, i) => {
 		addCardToStore(card, i)
@@ -387,3 +387,21 @@ backButtons.forEach(b => {
 		}, 1000)
 	}
 })
+
+let flushButton = document.querySelector("#flush-store")
+flushButton.onclick = () => {
+	if (score < 10) return
+
+	score -= 10
+	scoreElmt.innerHTML = score + "<span class='icon-coin'>"
+
+	storeCards.forEach(card => {
+		card.remove()
+	})
+	storeCards = generateCards(storeTable, [100, 10, 140, 0], 6)
+	storeCards.forEach((card, i) => {
+		addCardToStore(card, i)
+	})
+
+	scoreElmt.click()
+}

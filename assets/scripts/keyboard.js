@@ -138,6 +138,8 @@ window.onkeydown = (e) => {
 			} else if (e.key == "Enter" && storeSIndex != -1) {
 				storeCards[storeSIndex].click()
 				storeSIndex = -1
+			} else if (e.key == "x") {
+				flushButton.click()
 			}
 			return
 		}

@@ -275,6 +275,10 @@ button {
 	font-size: 20px;
 }
 
+#flush-store span[class*="icon-"] {
+	font-size: 12px;
+}
+
 .item-card .cost span[class*="icon-"] {
 	font-size: 13px;
 }
@@ -508,6 +512,23 @@ html.store #board {
 html.store #store .card.selected {
 	border: #3d89c7 solid 3px;
 	margin: 0;
+}
+
+#flush-store {
+	top: 10px;
+	position: absolute;
+	text-transform: uppercase;
+	color: crimson;
+	right: 5px;
+	padding: 0 3px;
+	transition: box-shadow 200ms;
+	border-radius: 3px;
+	box-shadow: none;
+	vertical-align: middle;
+}
+
+#flush-store:hover {
+	box-shadow: #3d3d3d 0 5px 5px;
 }
 
 /* HIGHSCORE TABLE */
