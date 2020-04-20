@@ -559,9 +559,6 @@ table th {
 	z-index: 1;
 }
 
-table thead {
-}
-
 table td {
 	font-size: 1.1em;
 	text-align: center;
@@ -585,5 +582,6 @@ table tbody:nth-child(3) {
 table tbody:nth-child(2) td:first-child::before {
 	content: "\63  ";
 	position: relative;
+	top: 2px;
 	font-family: "dm-icons";
 }
