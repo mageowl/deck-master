@@ -85,7 +85,7 @@ let storeTable = [
 				},
 				lore: "When facing any row:<br>- All of bottom row can be moved to.<br>4 uses, no stack. (Hold SHIFT to use)", uses: 4, stack: false
 			}
-		}, weight: 4
+		}, weight: 3
 	},
 	{
 		card: {
@@ -109,7 +109,7 @@ let storeTable = [
 					return false
 				}, lore: "When facing a row of 3 monsters:<br>- Monster in front of you: value = 0<br>2 uses, stackable.", uses: 2, stack: true
 			}
-		}, weight: 4
+		}, weight: 2
 	}
 
 ]
