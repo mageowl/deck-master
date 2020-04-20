@@ -44,15 +44,17 @@ const anims = {
 
 let scoreUploadBtn = document.getElementById("upload-score")
 scoreUploadBtn.onclick = () => {
-	if (!localStorage.dm_name || !confirm("Upload score to database using name " + localStorage.dm_name + " or change name?")) {
-		let name = prompt("Enter your name to enter your score into the database")
-		if (name != null && name != "") {
-			localStorage.dm_name = name
-			location.reload()
-			uploadScore(score * 10 + monsterPoints * 2)
-		}
+	if (!localStorage.dm_name) {
+		scoreUploadBtn.innerHTML = "Please set your name to continue"
 	} else {
 		location.reload()
 		uploadScore(score * 10 + monsterPoints * 2)
 	}
+}
+
+let changeNameBtn = document.getElementById("change-name")
+let newName = document.getElementById("new-name")
+changeNameBtn.onclick = () => {
+	localStorage.dm_name = newName.value
+	newName.value = ""
 }

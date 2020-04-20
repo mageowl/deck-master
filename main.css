@@ -233,13 +233,22 @@ body {
 	margin-top: 50px;
 }
 
+input {
+	outline: none;
+	border: none;
+	cursor: url("assets/art/cursor/text.png") 16 16,
+	pointer;
+	background-color: #505050;
+	font-family: PearSoda;
+	font-size: 1em;
+}
+
 #death h1 {
 	color: #fd5c5c;
 }
 
 #death #score {
-	text-align: left;
-	margin-left: 550px;
+	margin-left: -100px;
 }
 
 #store {
@@ -541,10 +550,16 @@ table {
 table th {
 	color: white;
 	font-weight: normal;
-	border:	2px solid black;
 	padding-left: 80px;
 	padding-right: 80px;
 	font-size: 1.3em;
+	position: sticky;
+	top: 0;
+	background-color: #1a1a1a;
+	z-index: 1;
+}
+
+table thead {
 }
 
 table td {
