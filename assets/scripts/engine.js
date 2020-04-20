@@ -36,6 +36,8 @@ let grid
 
 let level = [
 	{ card: { type: "monster", value: [3, 4], ills: "monsters/wolf", name: "wolf" }, weight: 5 },
+	{ card: { type: "monster", value: [4, 6], ills: "monsters/willow_wisp", name: "willow wisp" }, weight: 2 },
+	{ card: { type: "monster", value: [1, 2], ills: "monsters/slave", name: "monster's slave" }, weight: 3 },
 	{ card: { type: "monster", value: [2, 5], ills: "monsters/flower", name: "venom flower" }, weight: 3 },
 	{ card: { type: "monster", value: [1, 2], ills: "monsters/horned-rabbit", name: "horbit" }, weight: 6 },
 	{ card: { type: "coin", value: [1, 3], ills: "coins/one", name: "coin(s)" }, weight: 3 },
