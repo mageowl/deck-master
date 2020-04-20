@@ -18,8 +18,10 @@ const anims = {
 		monster.style.transform = "rotate(-15deg)"
 
 		undraggable(player)
-		player.style.left = "calc(50% - 64px)"
-		player.style.top = "78%"
+		setTimeout(() => {
+			player.style.left = "calc(50% - 64px)"
+			player.style.top = "78%"
+		}, 300);
 		player.style.transition = "top 500ms, left 500ms, transform 400ms"
 		player.querySelector(".current").innerText = 0
 		health = 15
@@ -29,6 +31,7 @@ const anims = {
 		deathText.querySelector("#final-coins").innerHTML = score + " <span class='icon-coin'></span>"
 		deathText.querySelector("#final-monsters").innerHTML = monsterPoints + " <span class='icon-skull'></span>"
 		deathText.querySelector("#final-score").innerText = score * 10 + monsterPoints * 2
+		deathText.querySelector("#save-name").innerText = localStorage.dm_name || "No Name"
 
 		let cards = document.querySelectorAll(".card:not(.hero-card):not(.card-back)")
 		cards.forEach(card => {
