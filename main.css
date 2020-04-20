@@ -449,6 +449,7 @@ button {
 	transition: color 500ms;
 	cursor: url("assets/art/cursor/point.png") 16 16,
 	pointer;
+	font-family: PearSoda;
 } 
 #main-menu span.menu-button:hover {
 	color: rgb(255, 255, 255);
