@@ -535,6 +535,7 @@ html.store #store .card.selected {
 	border-radius: 3px;
 	box-shadow: none;
 	vertical-align: middle;
+	z-index: 1;
 }
 
 #flush-store:hover {

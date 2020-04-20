@@ -40,9 +40,9 @@ let level = [
 	{ card: { type: "monster", value: [1, 2], ills: "monsters/slave", name: "monster's slave" }, weight: 3 },
 	{ card: { type: "monster", value: [2, 5], ills: "monsters/flower", name: "venom flower" }, weight: 3 },
 	{ card: { type: "monster", value: [1, 2], ills: "monsters/horned-rabbit", name: "horbit" }, weight: 6 },
-	{ card: { type: "coin", value: [1, 3], ills: "coins/one", name: "coin(s)" }, weight: 3 },
-	{ card: { type: "coin", value: [4, 6], ills: "coins/two", name: "coins" }, weight: 2 },
-	{ card: { type: "coin", value: [7, 10], ills: "coins/many", name: "coins" }, weight: 1 },
+	{ card: { type: "coin", value: [1, 3], ills: "coins/one", name: "coin(s)" }, weight: 4 },
+	{ card: { type: "coin", value: [4, 6], ills: "coins/two", name: "coins" }, weight: 3 },
+	{ card: { type: "coin", value: [7, 10], ills: "coins/many", name: "coins" }, weight: 2 },
 	{ card: { type: "effect", value: [2, 3], ills: "items/healing_flask", onDrop: (value) => {
 		addHealth(value)
 		playSound("glug")
