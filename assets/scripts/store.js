@@ -107,7 +107,7 @@ let storeTable = [
 						return true
 					}
 					return false
-				}, lore: "When facing a row of 3 monsters:<br>- Monster in front of you: value = 0<br>2 uses, stackable.", uses: 2, stack: true
+				}, lore: "When facing a row of 3 monsters:<br>- Monster in front of you: value = 0<br>2 uses, stackable.", uses: 3, stack: true
 			}
 		}, weight: 2
 	}
