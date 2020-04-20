@@ -1,3 +1,3 @@
 # Deck Master
-A web card game.
-Go play the game: https://seattleowl.com/deck-master
+A HTML5 rougelike. Go play: https://seattleowl.com/deck-master
+
