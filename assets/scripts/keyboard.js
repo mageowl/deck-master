@@ -144,17 +144,17 @@ window.onkeydown = (e) => {
 			return
 		}
 		if (e.key == "ArrowRight") {
-			if (!e.shiftKey || !hasWings) heroCard.goto(grid[2][playerPos + 1])
+			if (!e.shiftKey || !hasWings) heroCard.goto(grid[2][playerPos + 1 - (grid[2].length == 1)])
 			else {
 				hasWings = !heroCard.goto(grid[2][playerPos + 2])
 			}
 		} else if (e.key == "ArrowLeft") {
-			if (!e.shiftKey || !hasWings) heroCard.goto(grid[2][playerPos - 1])
+			if (!e.shiftKey || !hasWings) heroCard.goto(grid[2][playerPos - 1 - (grid[2].length == 1)])
 			else {
 				hasWings = !heroCard.goto(grid[2][playerPos - 2])
 			}
 		} else if (e.key == "ArrowUp") {
-			heroCard.goto(grid[2][playerPos])
+			heroCard.goto(grid[2][playerPos - (grid[2].length == 1)])
 		} else if (e.key == "ArrowDown") {
 			scoreElmt.click()
 			let found = false

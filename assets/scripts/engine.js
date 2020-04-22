@@ -9,7 +9,6 @@ heroCard.getElementsByClassName("illustration")[0].src = "assets/art/cards/heros
 let deathCount = 0
 let timerStarted = false
 let timerEnded = false
-
 let hasWings = false
 
 let playerPos = 1
@@ -34,7 +33,7 @@ let deathText = document.getElementById("death")
 let storeCards
 let grid
 
-let level = [
+let gameTable = [
 	{ card: { type: "monster", value: [3, 4], ills: "monsters/wolf", name: "wolf" }, weight: 5 },
 	{ card: { type: "monster", value: [4, 6], ills: "monsters/willow_wisp", name: "willow wisp" }, weight: 2 },
 	{ card: { type: "monster", value: [1, 2], ills: "monsters/slave", name: "monster's slave" }, weight: 3 },
@@ -75,7 +74,7 @@ let level = [
 			}, 1000)
 		})
 		if (health == 0) return true
-	}, name: "random effect" }, weight: 1 },
+	}, name: "random effect" }, weight: 1 }
 ]
 
 const addHealth = (x) => {
@@ -171,7 +170,6 @@ const applyCard = (card, type, value, player, deathCard = null, sound = true) =>
 const removeItemDurability = (item, i) => {
 	item.uses--
 	if (item.uses <= 0) {
-		console.log(item.onBreak, Boolean(item.onBreak))
 		if (item.onBreak) item.onBreak()
 		item.element.remove()
 		inventory.splice(i, 1)
@@ -196,7 +194,7 @@ const main = () => {
 	heroCard.style.top = "calc(100% - 186px)"
 	heroCard.style.left = "calc(50% - 64px)"
 
-	grid = [generateCards(level, [0, 0, 0, 0], 3), generateCards(level, [0, 0, 0, 0], 3), generateCards(level, [0, 0, 0, 0], 3)]
+	grid = [generateCards(gameTable, [0, 0, 0, 0], 3), generateCards(gameTable, [0, 0, 0, 0], 3), generateCards(gameTable, [0, 0, 0, 0], 3)]
 	grid.forEach((row, y) => {
 		row.forEach((card, x) => {
 			card.style.left = "calc(50% + " + (((x-1) * 137) - 64) + "px)"
@@ -251,10 +249,12 @@ const main = () => {
 		
 		if (grid[2].indexOf(target) == playerPos + 2 || grid[2].indexOf(target) == playerPos - 2) hasWings = false
 
+		bossHandler()
+
 		// Move cards
 		if (targetType != "item") {
 			if (storeElmt.style.opacity == 1) scoreElmt.click()
-			playerPos = grid[2].indexOf(target)
+			playerPos = grid[2].indexOf(target) + (grid[2].length == 1)
 			grid[2].forEach(card => {
 				if (card != target) card.style.opacity = 0
 			})
@@ -275,11 +275,15 @@ const main = () => {
 				heroCard.style.top = parseInt(heroCard.style.top) + 198
 				setTimeout(() => {
 					target.remove()
-					let newCards = generateCards(level, [0, 10, 0, 0], 3)
+					let newCards = generateCards(gameTable, ["calc(100% - 138px", 10, 0, 0], 3)
 					newCards.forEach((card) => {
-						card.style = "top: 10px; left: calc(100% - 138px);"
+						let type = Array.from(card.classList).filter((value) => { return value != "card" })[0]
+						if (type.substr(0, type.length - 5) == "monster") {
+							card.querySelector(".value").innerText = Math.ceil(parseInt(card.querySelector(".value").innerText) * difficulty)
+						}
 					})
-					grid.unshift(newCards)
+
+					grid.unshift(newCards.filter((value) => { return value != null }))
 					cards.push(...newCards)
 					grid[2].forEach((card, i) => {
 						card.style.zIndex = 0
@@ -296,9 +300,11 @@ const main = () => {
 					})
 					setTimeout(() => {
 						newCards.forEach((card, i) => {
+							if (card == null) return
 							card.style = "top: calc((100vh / 2 - 658px / 2) + 5px); left: calc(50% + " + (((i - 1) * 137) - 64) + "px)"
 							card.style.opacity = 1
 						})
+						newCards = newCards.filter((value) => { return value != null })
 						setTimeout(() => {
 							newCards.forEach((card, i) => {
 								boardElmt.appendChild(card)
