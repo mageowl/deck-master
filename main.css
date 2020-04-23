@@ -3,567 +3,579 @@
 
 /* ROOT */
 :root {
-  --card-color-white: #f3efbc;
-  --card-color-black: #303030;
-  --card-color-red: #fd5c5c;
-  font-family: Zepto-Regular, sans-serif;
-  background-color: #3d3d3d;
-  color: rgb(150, 150, 150);
-  overflow: hidden;
-  cursor: url('assets/art/cursor/point.png') 16 16, pointer;
+	--card-color-white: #f3efbc;
+	--card-color-black: #303030;
+	--card-color-red: #fd5c5c;
+	font-family: Zepto-Regular, sans-serif;
+	background-color: #3d3d3d;
+	color: rgb(150, 150, 150);
+	overflow: hidden;
+	cursor: url('assets/art/cursor/point.png') 16 16, pointer;
 }
 
 img {
-  -webkit-user-drag: none;
+	-webkit-user-drag: none;
 }
 
 span {
-  -webkit-user-select: none;
+	-webkit-user-select: none;
 }
 
 body {
-  margin: 0;
-  padding: 0;
+	margin: 0;
+	padding: 0;
 }
 
 /* CARDS */
 .card {
-  border-radius: 5px;
-  width: 128px;
-  height: 192px;
-  user-select: none;
-  text-transform: uppercase;
+	border-radius: 5px;
+	width: 128px;
+	height: 192px;
+	user-select: none;
+	text-transform: uppercase;
 
-  transition: opacity 500ms, left 500ms, top 500ms, transform 500ms;
-  position: absolute;
-  opacity: 0;
+	transition: opacity 500ms, left 500ms, top 500ms, transform 500ms;
+	position: absolute;
+	opacity: 0;
 
-  box-shadow: #3d3d3d 0px -5px 5px;
+	box-shadow: #3d3d3d 0px -5px 5px;
 }
 
 .card .illustration {
-  position: absolute;
+	position: absolute;
 
-  border-radius: 5px;
+	border-radius: 5px;
 }
 
 .card .value {
-  font-family: PearSoda, Zepto-Regular, sans-serif;
-  position: absolute;
-  top: 12px;
-  left: 10px;
-  width: 31px;
-  color: var(--card-color-black);
-  font-size: 2em;
-  text-shadow: -1px 0 var(--card-color-white), 1px 0 var(--card-color-white),
-    0 1px var(--card-color-white), 0 -1px var(--card-color-white);
-  text-align: center;
+	font-family: PearSoda, Zepto-Regular, sans-serif;
+	position: absolute;
+	top: 12px;
+	left: 10px;
+	width: 31px;
+	color: var(--card-color-black);
+	font-size: 2em;
+	text-shadow: -1px 0 var(--card-color-white), 1px 0 var(--card-color-white),
+		0 1px var(--card-color-white), 0 -1px var(--card-color-white);
+	text-align: center;
 }
 
 .card .name {
-  font-family: Zepto-Regular, sans-serif;
-  line-height: 15px;
-  position: absolute;
-  top: 12px;
-  left: 45px;
-  width: 31px;
-  color: var(--card-color-black);
-  font-size: 1em;
-  text-align: left;
+	font-family: Zepto-Regular, sans-serif;
+	line-height: 15px;
+	position: absolute;
+	top: 12px;
+	left: 45px;
+	width: 31px;
+	color: var(--card-color-black);
+	font-size: 1em;
+	text-align: left;
 }
 
 .card .value .current {
-  color: var(--card-color-red);
-  margin: 0;
-  padding: 0;
-  top: -7px;
-  position: relative;
-  font-size: 1.2em;
+	color: var(--card-color-red);
+	margin: 0;
+	padding: 0;
+	top: -7px;
+	position: relative;
+	font-size: 1.2em;
 }
+
 .card .value .total {
-  color: #b4b28c;
-  margin: 0;
-  padding: 0;
-  font-size: 0.5em;
-  bottom: 14px;
-  position: relative;
-  top: -19px;
-  left: 2px;
+	color: #b4b28c;
+	margin: 0;
+	padding: 0;
+	font-size: 0.5em;
+	bottom: 14px;
+	position: relative;
+	top: -19px;
+	left: 2px;
 }
 
 .hero-card {
-  background-color: var(--card-color-white);
-  position: absolute;
-  transition: transform 400ms, opacity 300ms;
-  cursor: url('assets/art/cursor/grab.png') 16 16, pointer;
-  opacity: 1;
+	background-color: var(--card-color-white);
+	position: absolute;
+	transition: transform 400ms, opacity 300ms;
+	cursor: url('assets/art/cursor/grab.png') 16 16, pointer;
+	opacity: 1;
 }
 
 .monster-card {
-  background-color: var(--card-color-white);
-  border-radius: 6px;
+	background-color: var(--card-color-white);
+	border-radius: 6px;
 }
 
 .monster-card .frame {
-  background-image: url('assets/art/cards/frame/green.png');
-  position: absolute;
+	background-image: url('assets/art/cards/frame/green.png');
+	position: absolute;
 
-  width: 128px;
-  height: 192px;
-  border-radius: 5px;
+	width: 128px;
+	height: 192px;
+	border-radius: 5px;
 }
 
 .coin-card {
-  background-color: var(--card-color-white);
-  border-radius: 6px;
+	background-color: var(--card-color-white);
+	border-radius: 6px;
 }
 
 .coin-card .frame {
-  background-image: url('assets/art/cards/frame/yellow.png');
-  position: absolute;
+	background-image: url('assets/art/cards/frame/yellow.png');
+	position: absolute;
 
-  width: 128px;
-  height: 192px;
-  border-radius: 5px;
+	width: 128px;
+	height: 192px;
+	border-radius: 5px;
 }
 
 .card-none {
-  background: var(--card-color-red);
+	background: var(--card-color-red);
 }
 
 .card-back {
-  background: var(--card-color-black);
-  color: rgb(87, 87, 87);
-  text-align: center;
-  right: 10px;
-  top: 5px;
-  opacity: 1;
-  z-index: 1000;
+	background: var(--card-color-black);
+	color: rgb(87, 87, 87);
+	text-align: center;
+	right: 10px;
+	top: 5px;
+	opacity: 1;
+	z-index: 1000;
 }
 
 .card-back .illustration {
-  left: 0px;
+	left: 0px;
 }
 
 .effect-card {
-  background-color: var(--card-color-white);
-  border-radius: 6px;
+	background-color: var(--card-color-white);
+	border-radius: 6px;
 }
 
 .effect-card .frame {
-  background-image: url('assets/art/cards/frame/gray.png');
-  position: absolute;
+	background-image: url('assets/art/cards/frame/gray.png');
+	position: absolute;
 
-  width: 128px;
-  height: 192px;
-  border-radius: 5px;
+	width: 128px;
+	height: 192px;
+	border-radius: 5px;
 }
 
 .item-card {
-  background-color: var(--card-color-black);
-  border-radius: 6px;
-  margin: 3px;
-  cursor: url('assets/art/cursor/point.png') 16 16, pointer;
+	background-color: var(--card-color-black);
+	border-radius: 6px;
+	margin: 3px;
+	cursor: url('assets/art/cursor/point.png') 16 16, pointer;
 }
 
 .item-card .frame {
-  background-image: url('assets/art/cards/frame/item.png');
-  position: absolute;
+	background-image: url('assets/art/cards/frame/item.png');
+	position: absolute;
 
-  width: 128px;
-  height: 192px;
-  border-radius: 5px;
+	width: 128px;
+	height: 192px;
+	border-radius: 5px;
 }
 
 .item-card .name {
-  color: rgb(207, 207, 207);
-  left: 0px;
-  top: 15px;
-  text-align: center;
-  width: 100%;
+	color: rgb(207, 207, 207);
+	left: 0px;
+	top: 15px;
+	text-align: center;
+	width: 100%;
 }
 
 .item-card .cost {
-  color: rgb(231, 206, 95);
-  left: 0px;
-  top: 165px;
-  text-align: center;
-  width: 100%;
-  position: absolute;
+	color: rgb(231, 206, 95);
+	left: 0px;
+	top: 165px;
+	text-align: center;
+	width: 100%;
+	position: absolute;
 }
 
 /* OTHER */
 #score-count {
-  position: absolute;
-  left: 10px;
-  bottom: 10px;
-  font-size: 29px;
-  -webkit-user-select: none;
-  transition: color 300ms;
-  color: yellow;
-  cursor: url('assets/art/cursor/point.png') 16 16, pointer;
+	position: absolute;
+	left: 10px;
+	bottom: 10px;
+	font-size: 29px;
+	-webkit-user-select: none;
+	transition: color 300ms;
+	color: yellow;
+	cursor: url('assets/art/cursor/point.png') 16 16, pointer;
 }
 
 #score-count:hover {
-  color: white;
+	color: white;
 }
 
 .icon-coin {
-  opacity: 0.5;
+	opacity: 0.5;
 }
 
 #death {
-  opacity: 0;
-  transition: opacity 500ms;
+	opacity: 0;
+	transition: opacity 500ms;
 
-  text-align: center;
-  margin-top: 50px;
+	text-align: center;
+	margin-top: 50px;
+	font-size: 1.2em;
 }
 
 input {
-  outline: none;
-  border: none;
-  cursor: url('assets/art/cursor/text.png') 16 16, pointer;
-  background-color: #505050;
-  font-family: PearSoda;
-  font-size: 1.6em;
-  padding: 0.4em;
-  color: white;
+	outline: none;
+	border: none;
+	cursor: url('assets/art/cursor/text.png') 16 16, pointer;
+	background-color: #505050;
+	font-family: PearSoda;
+	font-size: 1.5em;
+	padding: 0.4em;
+	color: white;
+}
+
+#death #total-score-text {
+	color: white;
+	margin: 50px 0;
+	font-size: 1.2em;
+}
+
+#upload-score {
+	padding: 11px;
+	margin-left: 0;
 }
 
 #death h1 {
-  color: #fd5c5c;
-}
-
-#death #score {
-  margin-left: -100px;
+	color: #fd5c5c;
+	font-size: 2em;
 }
 
 #store {
-  opacity: 0;
-  transition: opacity 300ms;
-  position: absolute;
-  left: 0;
-  width: 100vw;
-  height: 212px;
-  bottom: 0;
-  background-color: #505050;
+	opacity: 0;
+	transition: opacity 300ms;
+	position: absolute;
+	left: 0;
+	width: 100vw;
+	height: 212px;
+	bottom: 0;
+	background-color: #505050;
 }
 
 button {
-  background-color: var(--card-color-black);
-  cursor: url('assets/art/cursor/point.png') 16 16, pointer;
-  border: none;
-  outline: none;
-  color: inherit;
-  font-family: inherit;
-  font-size: 1em;
-  margin: 5px;
+	background-color: var(--card-color-black);
+	cursor: url('assets/art/cursor/point.png') 16 16, pointer;
+	border: none;
+	outline: none;
+	color: inherit;
+	font-family: inherit;
+	font-size: 1em;
+	margin: 5px;
 }
 
 .monster-name {
-  text-transform: uppercase;
+	text-transform: uppercase;
 }
 
 /* ICONS */
 
 #score-count span[class*='icon-'] {
-  font-size: 20px;
+	font-size: 20px;
 }
 
 #flush-store span[class*='icon-'] {
-  font-size: 12px;
+	font-size: 12px;
 }
 
 .item-card .cost span[class*='icon-'] {
-  font-size: 13px;
+	font-size: 13px;
 }
 
 #death span[class*='icon-'] {
-  font-size: 13px;
+	font-size: 13px;
 }
 
 /* INVENTORY */
 
 #inv {
-  background-color: var(--card-color-black);
-  right: 10px;
-  bottom: 10px;
-  position: absolute;
-  width: 380px;
-  transition: opacity 500ms;
-  opacity: 1;
+	background-color: var(--card-color-black);
+	right: 10px;
+	bottom: 10px;
+	position: absolute;
+	width: 380px;
+	transition: opacity 500ms;
+	opacity: 1;
 }
 
-#inv > span {
-  color: rgb(207, 207, 207);
-  margin-left: 10px;
-  margin-bottom: 10px;
-  -webkit-user-select: none;
+#inv>span {
+	color: rgb(207, 207, 207);
+	margin-left: 10px;
+	margin-bottom: 10px;
+	-webkit-user-select: none;
 }
 
 .inv-item {
-  background-color: #3a3a3a;
-  margin: 5px;
-  position: relative;
+	background-color: #3a3a3a;
+	margin: 5px;
+	position: relative;
 }
 
 .inv-item span.name {
-  position: absolute;
-  left: 65px;
-  top: 5px;
-  z-index: 1;
-  text-transform: uppercase;
-  font-size: 1.3em;
+	position: absolute;
+	left: 65px;
+	top: 5px;
+	z-index: 1;
+	text-transform: uppercase;
+	font-size: 1.3em;
 }
 
 .inv-item span:not(.name) {
-  position: absolute;
-  left: 65px;
-  top: 30px;
-  z-index: 1;
-  line-height: 18px;
+	position: absolute;
+	left: 65px;
+	top: 30px;
+	z-index: 1;
+	line-height: 18px;
 }
 
 .inv-image {
-  width: 64px;
-  height: auto;
+	width: 64px;
+	height: auto;
 }
 
 /* SCREENS */
 #game {
-  display: none;
-  transition: opacity 300ms;
-  opacity: 0;
-  top: 0;
-  height: 100vh;
+	display: none;
+	transition: opacity 300ms;
+	opacity: 0;
+	top: 0;
+	height: 100vh;
 }
 
 #tutorial {
-  transition: opacity 300ms;
-  opacity: 0;
-  max-width: 600px;
-  padding: 0 calc((100vw - 600px) / 2);
-  margin: auto;
-  display: none;
-  overflow-y: scroll;
-  height: 100vh;
+	transition: opacity 300ms;
+	opacity: 0;
+	max-width: 600px;
+	padding: 0 calc((100vw - 600px) / 2);
+	margin: auto;
+	display: none;
+	overflow-y: scroll;
+	height: 100vh;
 }
 
 #hero-select {
-  opacity: 0;
-  transition: opacity 300ms;
-  position: absolute;
-  left: 0;
-  width: 100vw;
-  height: 212px;
-  bottom: 0;
-  background-color: #505050;
-  padding: 30px;
-  pointer-events: none;
+	opacity: 0;
+	transition: opacity 300ms;
+	position: absolute;
+	left: 0;
+	width: 100vw;
+	height: 212px;
+	bottom: 0;
+	background-color: #505050;
+	padding: 30px;
+	pointer-events: none;
 }
 
 #league {
-  transition: opacity 300ms;
-  opacity: 0;
-  max-width: 600px;
-  padding: 0 calc((100vw - 600px) / 2);
-  margin: auto;
-  display: none;
-  overflow-y: auto;
-  height: 100vh;
-  margin-top: 20px;
+	transition: opacity 300ms;
+	opacity: 0;
+	max-width: 600px;
+	padding: 0 calc((100vw - 600px) / 2);
+	margin: auto;
+	display: none;
+	overflow-y: auto;
+	height: 100vh;
+	margin-top: 20px;
 }
 
 #hero-select .hero-select {
-  margin: 3px;
-  cursor: url('assets/art/cursor/point.png') 16 16, pointer;
-  box-shadow: none;
+	margin: 3px;
+	cursor: url('assets/art/cursor/point.png') 16 16, pointer;
+	box-shadow: none;
 }
 
 #hero-select .hero-select:not(.locked) .requirment {
-  display: none;
+	display: none;
 }
 
 #hero-select .hero-select.locked .requirment {
-  font-family: PearSoda;
-  bottom: 10px;
-  position: absolute;
-  width: 128;
-  text-align: center;
-  color: #546e7a;
-  font-size: 1.1em;
+	font-family: PearSoda;
+	bottom: 10px;
+	position: absolute;
+	width: 128;
+	text-align: center;
+	color: #546e7a;
+	font-size: 1.1em;
 }
 
 #hero-select .hero-select.locked {
-  background-color: var(--card-color-black);
-  background-image: url('assets/art/cards/heros/lock.png');
+	background-color: var(--card-color-black);
+	background-image: url('assets/art/cards/heros/lock.png');
 }
 
 #hero-select .hero-select.locked .illustration {
-  display: none;
+	display: none;
 }
 
 #hero-select .card.selected {
-  border: #3d89c7 solid 3px;
-  margin: 0;
+	border: #3d89c7 solid 3px;
+	margin: 0;
 }
 
 #tutorial p {
-  font-size: 1.5em;
+	font-size: 1.5em;
 }
 
 #main-menu {
-  margin: auto;
-  width: 540px;
-  text-align: center;
-  transition: opacity 300ms;
-  opacity: 1;
-  margin-top: 0;
-  transition: margin-top 500ms ease-in-out, opacity 500ms;
+	margin: auto;
+	width: 540px;
+	text-align: center;
+	transition: opacity 300ms;
+	opacity: 1;
+	margin-top: 0;
+	transition: margin-top 500ms ease-in-out, opacity 500ms;
 }
 
 #main-menu .menu-button {
-  display: block;
-  min-width: 200px;
-  max-width: 200px;
-  margin: auto;
-  margin-bottom: 20px;
-  padding: 5px 15px;
-  border-radius: 8px;
+	display: block;
+	min-width: 200px;
+	max-width: 200px;
+	margin: auto;
+	margin-bottom: 20px;
+	padding: 5px 15px;
+	border-radius: 8px;
 }
+
 #main-menu .menu-button.selected {
-  background-color: #333;
+	background-color: #333;
 }
 
 #main-menu span.menu-button {
-  font-size: 2em;
-  transition: color 500ms;
-  cursor: url('assets/art/cursor/point.png') 16 16, pointer;
-  font-family: PearSoda;
+	font-size: 2em;
+	transition: color 500ms;
+	cursor: url('assets/art/cursor/point.png') 16 16, pointer;
+	font-family: PearSoda;
 }
+
 #main-menu span.menu-button:hover {
-  color: rgb(255, 255, 255);
+	color: rgb(255, 255, 255);
 }
 
 .version {
-  position: fixed;
-  left: 10px;
-  bottom: 10px;
-  float: left;
+	position: fixed;
+	left: 10px;
+	bottom: 10px;
+	float: left;
 }
 
 #tutorial * {
-  position: initial;
+	position: initial;
 }
 
 #main-menu button {
-  position: absolute;
-  top: 10px;
-  background-color: rgb(20, 20, 20);
-  color: #3d3d3d;
-  border: none;
-  font-family: inherit;
-  font-size: 0.8em;
-  outline: none;
+	position: absolute;
+	top: 10px;
+	background-color: rgb(20, 20, 20);
+	color: #3d3d3d;
+	border: none;
+	font-family: inherit;
+	font-size: 0.8em;
+	outline: none;
 }
 
 #main-menu #high-contrast {
-  left: 10px;
+	left: 10px;
 }
 
 #main-menu #gamepad-btn {
-  right: 10px;
-  top: 10px;
+	right: 10px;
+	top: 10px;
 }
 
 #board {
-  height: 658px;
-  width: 402px;
-  position: absolute;
-  left: calc(100vw / 2 - 402px / 2);
-  top: calc(100vh / 2 - 658px / 2);
+	height: 658px;
+	width: 402px;
+	position: absolute;
+	left: calc(100vw / 2 - 402px / 2);
+	top: calc(100vh / 2 - 658px / 2);
 
-  transition: margin-top 500ms;
-  margin-top: 0;
+	transition: margin-top 500ms;
+	margin-top: 0;
 }
 
 /* STORE (by Micheal) */
 html.store #board div.card:not(.hero-card) {
-  opacity: 0.3 !important;
+	opacity: 0.3 !important;
 }
 
 html.store #inv {
-  opacity: 0 !important;
+	opacity: 0 !important;
 }
 
 html.store #board {
-  margin-top: -280px;
+	margin-top: -280px;
 }
 
 html.store #store .card.selected {
-  border: #3d89c7 solid 3px;
-  margin: 0;
+	border: #3d89c7 solid 3px;
+	margin: 0;
 }
 
 #flush-store {
-  top: 10px;
-  position: absolute;
-  text-transform: uppercase;
-  color: crimson;
-  right: 5px;
-  padding: 0 3px;
-  transition: box-shadow 200ms;
-  border-radius: 3px;
-  box-shadow: none;
-  vertical-align: middle;
-  z-index: 1;
+	top: 10px;
+	position: absolute;
+	text-transform: uppercase;
+	color: crimson;
+	right: 5px;
+	padding: 0 3px;
+	transition: box-shadow 200ms;
+	border-radius: 3px;
+	box-shadow: none;
+	vertical-align: middle;
+	z-index: 1;
 }
 
 #flush-store:hover {
-  box-shadow: #3d3d3d 0 5px 5px;
+	box-shadow: #3d3d3d 0 5px 5px;
 }
 
 /* HIGHSCORE TABLE */
 table {
-  margin: auto;
-  border-collapse: collapse;
+	margin: auto;
+	border-collapse: collapse;
 }
 
 table th {
-  color: white;
-  font-weight: normal;
-  padding-left: 80px;
-  padding-right: 80px;
-  font-size: 1.3em;
-  position: sticky;
-  top: 0;
-  background-color: #1a1a1a;
-  z-index: 1;
+	color: white;
+	font-weight: normal;
+	padding-left: 80px;
+	padding-right: 80px;
+	font-size: 1.3em;
+	position: sticky;
+	top: 0;
+	background-color: #1a1a1a;
+	z-index: 1;
 }
 
 table td {
-  font-size: 1.1em;
-  text-align: center;
+	font-size: 1.1em;
+	text-align: center;
 }
 
 table tbody:nth-child(odd) {
-  background-color: var(--card-color-black);
+	background-color: var(--card-color-black);
 }
 
 table tbody:nth-child(2) {
-  color: gold;
-  font-size: 1.2em;
+	color: gold;
+	font-size: 1.2em;
 }
 
 table tbody:nth-child(3) {
-  color: rgb(230, 230, 230);
-  font-size: 1.1em;
+	color: rgb(230, 230, 230);
+	font-size: 1.1em;
 }
 
 table tbody:nth-child(2) td:first-child::before {
-  content: '\63  ';
-  position: relative;
-  top: 2px;
-  font-family: 'dm-icons';
+	content: '\63  ';
+	position: relative;
+	top: 2px;
+	font-family: 'dm-icons';
 }

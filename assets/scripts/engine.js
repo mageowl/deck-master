@@ -28,7 +28,7 @@ let leagueButton = document.getElementById("league-button")
 let leagueElmt = document.getElementById("league")
 
 let inventory = []
-let invElemt = document.getElementById("inv")
+let invElmt = document.getElementById("inv")
 let deathText = document.getElementById("death")
 let storeCards
 let grid
@@ -80,7 +80,7 @@ let gameTable = [
 const addHealth = (x) => {
 	health += x
 	if (health <= 0) {
-		if (anims.animActive) health = 0
+		if (animActive) health = 0
 		return true
 	}
 	let total = parseInt(heroCard.getElementsByClassName("total")[0].innerText.substr(1))
@@ -97,9 +97,9 @@ const applyCard = (card, type, value, player, deathCard = null, sound = true) =>
 			if (sound) playSound("slash")
 			if (addHealth(-value)) {
 				if (deathCard) {
-					anims.death(deathCard, player, card)
+					death(deathCard, player, card)
 				} else {
-					anims.death(card, player)
+					death(card, player)
 				}
 				return true
 			}
@@ -153,7 +153,7 @@ const applyCard = (card, type, value, player, deathCard = null, sound = true) =>
 			lore.innerHTML = card.data.lore
 			inventoryItem.appendChild(lore)
 
-			invElemt.appendChild(inventoryItem)
+			invElmt.appendChild(inventoryItem)
 			let item = { ...card.data, element: inventoryItem }
 			if (item.onNewCards) {
 				if (item.onNewCards() && item.uses != undefined) {
@@ -194,6 +194,9 @@ const main = () => {
 	heroCard.style.top = "calc(100% - 186px)"
 	heroCard.style.left = "calc(50% - 64px)"
 
+	invElmt.style.display = "block"
+	scoreElmt.style.display = "block"
+
 	grid = [generateCards(gameTable, [0, 0, 0, 0], 3), generateCards(gameTable, [0, 0, 0, 0], 3), generateCards(gameTable, [0, 0, 0, 0], 3)]
 	grid.forEach((row, y) => {
 		row.forEach((card, x) => {
@@ -224,7 +227,7 @@ const main = () => {
 		let targetValue = target.getElementsByClassName("value")[0] ? parseInt(target.getElementsByClassName("value")[0].innerText) : 0
 		
 		// Apply card
-		anims.animActive = false
+		animActive = false
 		applyCard(target, targetType, targetValue, player)
 		inventory.forEach((item, i) => {
 			if (item.apply) {
@@ -240,10 +243,10 @@ const main = () => {
 				}
 			}
 		})
-		anims.animActive = true
+		animActive = true
 		if (health <= 0) {
 			health = 0
-			anims.death(target, player)
+			death(target, player)
 			return
 		}
 		
@@ -320,6 +323,7 @@ const main = () => {
 
 const clear = () => {
 	deathText.style.opacity = 0
+	deathText.style.display = "none"
 	cards.forEach(card => {
 		if (!card.classList.contains("hero-card") && !card.classList.contains("card-back")) card.remove()
 	})

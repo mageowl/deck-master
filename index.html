@@ -26,7 +26,7 @@
 	<body>
 		<div id="main-menu">
 			<img id="title-image" src="assets/art/menu.png">
-			<span class="version">v1.3.2-beta</span>
+			<span class="version">v1.3.3-beta</span>
 			<span id="play-button" class="menu-button">Play</span>
 			<span id="tutorial-button" class="menu-button">Tutorial</span>
 			<span id="hero-button" class="menu-button">Heroes</span>
@@ -76,12 +76,12 @@
 				<div id="score">
 					Coins collected: <span id="final-coins">0 <span class="icon-coin"></span></span> x10<br>
 					Monster points: <span id="final-monsters">0 <span class="icon-skull"></span></span> x2<br><br>
-					Name: <span id="save-name">No name</span><br>
-					<input type="text" id="new-name" autocomplete="off"><button id="change-name">Change</button><br>
-					Total Score: <span id="final-score">0</span><button id="upload-score">Upload</button>
+
+					<span id="total-score-text">Total Score: <span id="final-score">0</span></span><br><br>
+					<input type="text" id="save-name" autocomplete="off"><button id="upload-score">Save score</button><br>
 				</div>
 				<br>
-				<button class="back">Home</button><br>
+				<button class="back">Main Menu</button><br>
 			</div>
 
 			<div class="card card-back">
@@ -164,7 +164,7 @@
 	<script src="assets/scripts/mapper.js"></script>
 	<script src="assets/scripts/cards/create.js"></script>
 	<script src="assets/scripts/cards/generate.js"></script>
-	<script src="assets/scripts/animations.js"></script>
+	<script src="assets/scripts/death.js"></script>
 	<script src="assets/scripts/difficulty.js"></script>
 	<script src="assets/scripts/engine.js"></script>
 	<script src="assets/scripts/highscores.js"></script>
