@@ -209,10 +209,6 @@ body {
 	color: white;
 }
 
-.icon-coin {
-	opacity: 0.5;
-}
-
 #death {
 	opacity: 0;
 	transition: opacity 500ms;
@@ -220,6 +216,7 @@ body {
 	text-align: center;
 	margin-top: 50px;
 	font-size: 1.2em;
+	display: none;
 }
 
 input {
@@ -277,6 +274,10 @@ button {
 
 /* ICONS */
 
+.icon-coin {
+	opacity: 0.5;
+}
+
 #score-count span[class*='icon-'] {
 	font-size: 20px;
 }
@@ -291,6 +292,7 @@ button {
 
 #death span[class*='icon-'] {
 	font-size: 13px;
+	opacity: 1;
 }
 
 /* INVENTORY */
