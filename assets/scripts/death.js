@@ -50,7 +50,7 @@ const death = (monster, player, secondMonster = monster) => {
 let scoreUploadBtn = document.getElementById("upload-score")
 let saveName = document.getElementById("save-name")
 scoreUploadBtn.onclick = () => {
-	if (!localStorage.dm_name && !saveName.value) {
+	if (saveName.value == "" || saveName.value == "No Name") {
 		scoreUploadBtn.innerHTML = "Please set your name to continue"
 	} else {
 		localStorage.dm_name = saveName.value

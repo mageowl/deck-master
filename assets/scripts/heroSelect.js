@@ -1,6 +1,6 @@
 if (localStorage.dm_heroesUnlocked == undefined) localStorage.dm_heroesUnlocked = "blue_knight"
 let heroSelectCards = []
-let heroes = {"blue_knight": "Defalt", "life_mage": "Use a life staff to escape death", "reaper": "Die 10 times in 10 min."}
+let heroes = {"blue_knight": "Default", "life_mage": "Use a life staff to escape death", "reaper": "Die 10 times in 10 min."}
 Object.keys(heroes).forEach((hero, i) => {
     let card = document.createElement("div")
     card.classList.add("card", "hero-card", "hero-select")
