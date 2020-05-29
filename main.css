@@ -502,7 +502,7 @@ button {
 	margin-top: 0;
 }
 
-/* STORE (by Micheal) */
+/* STORE (partly by Micheal) */
 html.store #board div.card:not(.hero-card) {
 	opacity: 0.3 !important;
 }

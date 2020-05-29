@@ -113,13 +113,15 @@ const gamepadInputLoop = () => {
                     storeCards[start].classList.add("selected")
                     storeSIndex = start
                 }
-            } else if (mapper.getBtnPress("Y")  && currentScreen == gameElmt) {
+            } else if (mapper.getBtnPress("Y") && currentScreen == gameElmt) {
                 scoreElmt.click()
                 storeCards[storeSIndex ? storeSIndex : 0].classList.remove("selected")
             } else if (mapper.getBtn("A") && storeSIndex != -1) {
                 storeCards[storeSIndex].click()
                 storeSIndex = -1
-            }
+            } else if (mapper.getBtnPress("X")) {
+				flushButton.click()
+			}
             return
         }
 
