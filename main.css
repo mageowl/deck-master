@@ -1,5 +1,5 @@
-@import 'assets/font/stylesheet.css';
-@import 'assets/font/icons/dm-icons/style.css';
+@import "assets/font/stylesheet.css";
+@import "assets/font/icons/dm-icons/style.css";
 
 /* ROOT */
 :root {
@@ -10,7 +10,7 @@
 	background-color: #3d3d3d;
 	color: rgb(150, 150, 150);
 	overflow: hidden;
-	cursor: url('assets/art/cursor/point.png') 16 16, pointer;
+	cursor: url("assets/art/cursor/point.png") 16 16, pointer;
 }
 
 img {
@@ -96,7 +96,7 @@ body {
 	background-color: var(--card-color-white);
 	position: absolute;
 	transition: transform 400ms, opacity 300ms;
-	cursor: url('assets/art/cursor/grab.png') 16 16, pointer;
+	cursor: url("assets/art/cursor/grab.png") 16 16, pointer;
 	opacity: 1;
 }
 
@@ -106,7 +106,7 @@ body {
 }
 
 .monster-card .frame {
-	background-image: url('assets/art/cards/frame/green.png');
+	background-image: url("assets/art/cards/frame/green.png");
 	position: absolute;
 
 	width: 128px;
@@ -120,7 +120,7 @@ body {
 }
 
 .coin-card .frame {
-	background-image: url('assets/art/cards/frame/yellow.png');
+	background-image: url("assets/art/cards/frame/yellow.png");
 	position: absolute;
 
 	width: 128px;
@@ -152,7 +152,7 @@ body {
 }
 
 .effect-card .frame {
-	background-image: url('assets/art/cards/frame/gray.png');
+	background-image: url("assets/art/cards/frame/gray.png");
 	position: absolute;
 
 	width: 128px;
@@ -164,11 +164,11 @@ body {
 	background-color: var(--card-color-black);
 	border-radius: 6px;
 	margin: 3px;
-	cursor: url('assets/art/cursor/point.png') 16 16, pointer;
+	cursor: url("assets/art/cursor/point.png") 16 16, pointer;
 }
 
 .item-card .frame {
-	background-image: url('assets/art/cards/frame/item.png');
+	background-image: url("assets/art/cards/frame/item.png");
 	position: absolute;
 
 	width: 128px;
@@ -202,7 +202,7 @@ body {
 	-webkit-user-select: none;
 	transition: color 300ms;
 	color: yellow;
-	cursor: url('assets/art/cursor/point.png') 16 16, pointer;
+	cursor: url("assets/art/cursor/point.png") 16 16, pointer;
 }
 
 #score-count:hover {
@@ -222,7 +222,7 @@ body {
 input {
 	outline: none;
 	border: none;
-	cursor: url('assets/art/cursor/text.png') 16 16, pointer;
+	cursor: url("assets/art/cursor/text.png") 16 16, pointer;
 	background-color: #505050;
 	font-family: PearSoda;
 	font-size: 1.5em;
@@ -259,7 +259,7 @@ input {
 
 button {
 	background-color: var(--card-color-black);
-	cursor: url('assets/art/cursor/point.png') 16 16, pointer;
+	cursor: url("assets/art/cursor/point.png") 16 16, pointer;
 	border: none;
 	outline: none;
 	color: inherit;
@@ -278,19 +278,19 @@ button {
 	opacity: 0.5;
 }
 
-#score-count span[class*='icon-'] {
+#score-count span[class*="icon-"] {
 	font-size: 20px;
 }
 
-#flush-store span[class*='icon-'] {
+#flush-store span[class*="icon-"] {
 	font-size: 12px;
 }
 
-.item-card .cost span[class*='icon-'] {
+.item-card .cost span[class*="icon-"] {
 	font-size: 13px;
 }
 
-#death span[class*='icon-'] {
+#death span[class*="icon-"] {
 	font-size: 13px;
 	opacity: 1;
 }
@@ -307,7 +307,7 @@ button {
 	opacity: 1;
 }
 
-#inv>span {
+#inv > span {
 	color: rgb(207, 207, 207);
 	margin-left: 10px;
 	margin-bottom: 10px;
@@ -389,7 +389,7 @@ button {
 
 #hero-select .hero-select {
 	margin: 3px;
-	cursor: url('assets/art/cursor/point.png') 16 16, pointer;
+	cursor: url("assets/art/cursor/point.png") 16 16, pointer;
 	box-shadow: none;
 }
 
@@ -409,7 +409,7 @@ button {
 
 #hero-select .hero-select.locked {
 	background-color: var(--card-color-black);
-	background-image: url('assets/art/cards/heros/lock.png');
+	background-image: url("assets/art/cards/heros/lock.png");
 }
 
 #hero-select .hero-select.locked .illustration {
@@ -452,7 +452,7 @@ button {
 #main-menu span.menu-button {
 	font-size: 2em;
 	transition: color 500ms;
-	cursor: url('assets/art/cursor/point.png') 16 16, pointer;
+	cursor: url("assets/art/cursor/point.png") 16 16, pointer;
 	font-family: PearSoda;
 }
 
@@ -576,8 +576,8 @@ table tbody:nth-child(3) {
 }
 
 table tbody:nth-child(2) td:first-child::before {
-	content: '\63  ';
+	content: "\63  ";
 	position: relative;
 	top: 2px;
-	font-family: 'dm-icons';
+	font-family: "dm-icons";
 }
