@@ -46,7 +46,8 @@ let storeTable = [
 						isRowMonsters &&
 						grid[2][playerPos].querySelector(".value").innerText > 0
 					) {
-						grid[2][playerPos].querySelector(".value").innerText = 0;
+						grid[2][playerPos].querySelector(".value").innerHTML =
+							"0<span class='icon-down'></span>";
 						return true;
 					}
 					return false;
@@ -116,8 +117,8 @@ let storeTable = [
 			name: "wings",
 			data: {
 				cost: 15,
-				onNewCards: () => {
-					let used = !hasWings;
+				onNewCards: (firstCall) => {
+					let used = !(firstCall || hasWings);
 					hasWings = true;
 					grid[2].forEach((item) => {
 						item.classList.add("drop");
@@ -126,6 +127,7 @@ let storeTable = [
 				},
 				onBreak: () => {
 					hasWings = false;
+					console.log(hasWings);
 				},
 				lore:
 					"When facing any row:<br>- All of bottom row can be moved to.<br>4 uses, no stack. (Hold SHIFT to use)",
@@ -158,8 +160,7 @@ let storeTable = [
 					) {
 						grid[2].forEach((card) => {
 							let value = card.querySelector(".value");
-							value.innerText = 0;
-							value.style.color = "dodgerblue";
+							value.innerHTML = "0<span class='icon-down'></span>";
 						});
 						return true;
 					}

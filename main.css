@@ -1,11 +1,12 @@
 @import "assets/font/stylesheet.css";
 @import "assets/font/icons/dm-icons/style.css";
 
-/* ROOT */
+/* VARIBLES */
 :root {
 	--card-color-white: #f3efbc;
 	--card-color-black: #303030;
 	--card-color-red: #fd5c5c;
+	--card-color-green: #77cc6f;
 	font-family: Zepto-Regular, sans-serif;
 	background-color: #3d3d3d;
 	color: rgb(150, 150, 150);
@@ -274,25 +275,37 @@ button {
 
 /* ICONS */
 
-.icon-coin {
-	opacity: 0.5;
-}
-
 #score-count span[class*="icon-"] {
 	font-size: 20px;
 }
 
 #flush-store span[class*="icon-"] {
-	font-size: 12px;
+	font-size: 13px;
 }
 
 .item-card .cost span[class*="icon-"] {
 	font-size: 13px;
 }
 
+.card .value span[class*="icon-"] {
+	font-size: 10px;
+}
+
 #death span[class*="icon-"] {
 	font-size: 13px;
 	opacity: 1;
+}
+
+.icon-down {
+	color: var(--card-color-red);
+	line-height: inherit;
+	vertical-align: text-bottom;
+}
+
+.icon-up {
+	color: var(--card-color-green);
+	line-height: inherit;
+	vertical-align: super;
 }
 
 /* INVENTORY */

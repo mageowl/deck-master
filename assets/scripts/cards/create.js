@@ -59,9 +59,14 @@ const createCard = (
 	cardElmt.style.left = card.pos[0];
 	cardElmt.style.top = card.pos[1];
 
-	// On drop
+	// OnDrop
 	if (card.type == "effect" && card.onDrop) {
 		cardElmt.drop = card.onDrop;
+	}
+
+	// OnNext
+	if (card.type == "effect" && card.onNext) {
+		cardElmt.next = card.onNext;
 	}
 
 	// Extra stuff
