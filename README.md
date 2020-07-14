@@ -1,6 +1,8 @@
 # Deck Master
 A HTML5 rougelike. Go play: https://seattleowl.com/deck-master
 
+If you have any ideas, check out the form: https://forms.gle/MPtKAPk8KTuSWvom9
+
 ## Credits
 Director: Owen Leggett<br>
 Fonts: PearSoda and Zepto<br>
