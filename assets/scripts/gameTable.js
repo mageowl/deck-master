@@ -165,6 +165,55 @@ let gameTable = [
 								name: "healing flask"
 							},
 							weight: 3
+						},
+						{
+							card: {
+								type: "effect",
+								value: [1, 3],
+								ills: "items/monster_potion",
+								onDrop: (value) => {
+									playSound("glass_break");
+									grid.forEach((row, i) => {
+										if (i == 2) return;
+										row.forEach((card) => {
+											let cardType = Array.from(card.classList)
+												.filter((value) => value != "card")[0]
+												.slice(0, -5);
+
+											if (
+												cardType == "monster" &&
+												!card
+													.querySelector(".value")
+													.innerText.includes("span class='icon-up'")
+											) {
+												card.querySelector(".value").innerHTML =
+													parseInt(card.querySelector(".value").innerHTML) +
+													value +
+													"<span class='icon-up'></span";
+											}
+										});
+									});
+								},
+								onNext: (value) => {
+									grid.forEach((row, i) => {
+										if (i != 0) return;
+										row.forEach((card) => {
+											let cardType = Array.from(card.classList)
+												.filter((value) => value != "card")[0]
+												.slice(0, -5);
+
+											if (cardType == "monster") {
+												card.querySelector(".value").innerHTML =
+													parseInt(card.querySelector(".value").innerHTML) +
+													value +
+													"<span class='icon-up'></span";
+											}
+										});
+									});
+								},
+								name: "monster potion"
+							},
+							weight: 3
 						}
 					],
 					[-350, 202, 140, 0],
@@ -195,7 +244,7 @@ let gameTable = [
 			},
 			name: "random effect"
 		},
-		weight: 3
+		weight: 10
 	},
 	{
 		card: {
@@ -226,18 +275,14 @@ let gameTable = [
 				});
 			},
 			onNext: (value) => {
-				grid.forEach((row) => {
+				grid.forEach((row, i) => {
+					if (i != 0) return;
 					row.forEach((card) => {
 						let cardType = Array.from(card.classList)
 							.filter((value) => value != "card")[0]
 							.slice(0, -5);
 
-						if (
-							cardType == "monster" &&
-							!card
-								.querySelector(".value")
-								.innerHTML.includes('span class="icon-up"')
-						) {
+						if (cardType == "monster") {
 							card.querySelector(".value").innerHTML =
 								parseInt(card.querySelector(".value").innerHTML) +
 								value +

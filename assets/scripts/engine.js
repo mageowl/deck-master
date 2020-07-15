@@ -313,13 +313,10 @@ const main = () => {
 					});
 					inventory.forEach((item, i) => {
 						if (item.onNewCards) {
-							if (item.onNewCards(false) && item.uses != undefined) {
-								console.log(item);
+							if (item.onNewCards() && item.uses != undefined) {
 								removeItemDurability(item, i);
 							}
 						}
-						if (item.element.querySelector(".name").innerHTML == "wings")
-							hasWings = true;
 					});
 					setTimeout(() => {
 						newCards.forEach((card, i) => {

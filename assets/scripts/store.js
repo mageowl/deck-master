@@ -119,6 +119,7 @@ let storeTable = [
 				cost: 15,
 				onNewCards: (firstCall) => {
 					let used = !(firstCall || hasWings);
+					console.trace(used, firstCall);
 					hasWings = true;
 					grid[2].forEach((item) => {
 						item.classList.add("drop");
@@ -127,7 +128,6 @@ let storeTable = [
 				},
 				onBreak: () => {
 					hasWings = false;
-					console.log(hasWings);
 				},
 				lore:
 					"When facing any row:<br>- All of bottom row can be moved to.<br>4 uses, no stack. (Hold SHIFT to use)",
