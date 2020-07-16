@@ -73,6 +73,21 @@ const applyCard = (
 			}
 			monsterPoints += value;
 			break;
+		case "monster-effect":
+			if (sound) playSound("slash");
+
+			card.drop?.(value, player, card);
+
+			if (addHealth(-value)) {
+				if (deathCard) {
+					death(deathCard, player, card);
+				} else {
+					death(card, player);
+				}
+				return true;
+			}
+			monsterPoints += value;
+			break;
 		case "coin":
 			if (!card.querySelector(".name").innerHTML.includes("coin")) {
 				collectedGems = [

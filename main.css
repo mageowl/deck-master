@@ -16,6 +16,8 @@
 
 img {
 	-webkit-user-drag: none;
+	image-rendering: pixelated;
+	image-rendering: crisp-edges;
 }
 
 span {
@@ -29,7 +31,7 @@ body {
 
 /* CARDS */
 .card {
-	border-radius: 5px;
+	border-radius: 6px;
 	width: 128px;
 	height: 192px;
 	user-select: none;
@@ -93,40 +95,47 @@ body {
 	left: 2px;
 }
 
+.card .frame {
+	image-rendering: pixelated;
+	image-rendering: crisp-edges;
+	position: absolute;
+
+	width: 128px;
+	height: 192px;
+	border-radius: 5px;
+}
+
 .hero-card {
 	background-color: var(--card-color-white);
 	position: absolute;
 	transition: transform 400ms, opacity 300ms;
 	cursor: url("assets/art/cursor/grab.png") 16 16, pointer;
 	opacity: 1;
+	border-radius: 5px;
 }
 
 .monster-card {
 	background-color: var(--card-color-white);
-	border-radius: 6px;
 }
 
 .monster-card .frame {
 	background-image: url("assets/art/cards/frame/green.png");
-	position: absolute;
+}
 
-	width: 128px;
-	height: 192px;
-	border-radius: 5px;
+.monster-effect-card {
+	background-color: var(--card-color-white);
+}
+
+.monster-effect-card .frame {
+	background-image: url("assets/art/cards/frame/light-green.png");
 }
 
 .coin-card {
 	background-color: var(--card-color-white);
-	border-radius: 6px;
 }
 
 .coin-card .frame {
 	background-image: url("assets/art/cards/frame/yellow.png");
-	position: absolute;
-
-	width: 128px;
-	height: 192px;
-	border-radius: 5px;
 }
 
 .card-none {
@@ -163,18 +172,12 @@ body {
 
 .item-card {
 	background-color: var(--card-color-black);
-	border-radius: 6px;
 	margin: 3px;
 	cursor: url("assets/art/cursor/point.png") 16 16, pointer;
 }
 
 .item-card .frame {
 	background-image: url("assets/art/cards/frame/item.png");
-	position: absolute;
-
-	width: 128px;
-	height: 192px;
-	border-radius: 5px;
 }
 
 .item-card .name {
@@ -373,6 +376,10 @@ button {
 	display: none;
 	overflow-y: scroll;
 	height: 100vh;
+}
+
+#tutorial img {
+	width: 128px;
 }
 
 #hero-select {

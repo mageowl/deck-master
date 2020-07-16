@@ -19,6 +19,30 @@ let gameTable = [
 	},
 	{
 		card: {
+			type: "monster-effect",
+			value: [1, 2],
+			ills: "monsters/seedling",
+			name: "seedling",
+			onDrop(value) {
+				grid.forEach((row, i) => {
+					if (i == 2) return;
+					row.forEach((card) => {
+						if (
+							card.querySelector(".name").innerHTML.startsWith("willow wisp")
+						) {
+							card.querySelector(".value").innerHTML =
+								parseInt(card.querySelector(".value").innerHTML) +
+								value +
+								'<span class="icon-up"></span>';
+						}
+					});
+				});
+			}
+		},
+		weight: 5
+	},
+	{
+		card: {
 			type: "monster",
 			value: [1, 2],
 			ills: "monsters/slave",
@@ -83,7 +107,7 @@ let gameTable = [
 			type: "effect",
 			value: [2, 4],
 			ills: "items/healing_flask",
-			onDrop: (value) => {
+			onDrop(value) {
 				addHealth(value);
 				playSound("glug");
 			},
@@ -96,7 +120,7 @@ let gameTable = [
 			type: "effect",
 			value: [1, 2],
 			ills: "items/random_effect",
-			onDrop: (value, player, self) => {
+			onDrop(value, player, self) {
 				playSound("glug");
 				let box_cards = generateCards(
 					[
@@ -251,7 +275,7 @@ let gameTable = [
 			type: "effect",
 			value: [1, 3],
 			ills: "items/monster_potion",
-			onDrop: (value) => {
+			onDrop(value) {
 				playSound("glass_break");
 				grid.forEach((row, i) => {
 					if (i == 2) return;
@@ -260,12 +284,7 @@ let gameTable = [
 							.filter((value) => value != "card")[0]
 							.slice(0, -5);
 
-						if (
-							cardType == "monster" &&
-							!card
-								.querySelector(".value")
-								.innerText.includes("span class='icon-up'")
-						) {
+						if (cardType.startsWith("monster")) {
 							card.querySelector(".value").innerHTML =
 								parseInt(card.querySelector(".value").innerHTML) +
 								value +
@@ -274,7 +293,7 @@ let gameTable = [
 					});
 				});
 			},
-			onNext: (value) => {
+			onNext(value) {
 				grid.forEach((row, i) => {
 					if (i != 0) return;
 					row.forEach((card) => {
@@ -282,7 +301,7 @@ let gameTable = [
 							.filter((value) => value != "card")[0]
 							.slice(0, -5);
 
-						if (cardType == "monster") {
+						if (cardType.startsWith("monster")) {
 							card.querySelector(".value").innerHTML =
 								parseInt(card.querySelector(".value").innerHTML) +
 								value +

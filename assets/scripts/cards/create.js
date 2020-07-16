@@ -60,7 +60,7 @@ const createCard = (
 	cardElmt.style.top = card.pos[1];
 
 	// OnDrop
-	if (card.type == "effect" && card.onDrop) {
+	if ((card.type == "effect" || card.type == "monster-effect") && card.onDrop) {
 		cardElmt.drop = card.onDrop;
 	}
 

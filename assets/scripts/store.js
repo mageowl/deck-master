@@ -40,7 +40,7 @@ let storeTable = [
 						})[0];
 						cardType = cardType.substr(0, cardType.length - 5);
 
-						if (cardType != "monster") isRowMonsters = false;
+						if (!cardType.startsWith("monster")) isRowMonsters = false;
 					});
 					if (
 						isRowMonsters &&
@@ -152,7 +152,7 @@ let storeTable = [
 						})[0];
 						cardType = cardType.substr(0, cardType.length - 5);
 
-						if (cardType != "monster") isRowMonsters = false;
+						if (!cardType.startsWith("monster")) isRowMonsters = false;
 					});
 					if (
 						isRowMonsters &&
